@@ -1,0 +1,2 @@
+class Journel < ApplicationRecord
+end
