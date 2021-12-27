@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-// import Auth from "./AuthenticatedApp";
-// import UnAuth from "./UnauthenticatedApp";
+// import { BrowserRouter as Router } from "react-router-dom";
+import Auth from "./AuthenticatedApp";
+import UnAuth from "./UnAuthenticatedApp";
 
 
 function App() {
@@ -29,15 +29,13 @@ function App() {
   // }
 
   return (
-    <Router>
+    <div>
       {currentUser ? (
-        // <Auth setCurrentUser={setCurrentUser} currentUser={currentUser} />
-        <div>Hello</div>
-      ) : (
-        // <UnAuth setCurrentUser={setCurrentUser} />
-        <div>goodbye</div>
-      )}
-    </Router>
+        <Auth setCurrentUser={setCurrentUser} currentUser={currentUser} />
+        ) : (
+          <UnAuth setCurrentUser={setCurrentUser} />
+          )}
+    </div>
   );
 }
 
