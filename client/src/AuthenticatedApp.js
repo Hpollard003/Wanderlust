@@ -1,8 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AuthHome from "./containers/AuthHome";
 import {Navbar} from "./components/Navbar"
-// import Login from "./components/Login";
-// import SignUp from "./components/SignUp";
+import Profile from "./components/Profile";
 
 
 const Auth = ({setCurrentUser, currentUser}) => {
@@ -12,6 +11,7 @@ const Auth = ({setCurrentUser, currentUser}) => {
       <Navbar setCurrentUser={setCurrentUser} currentUser={currentUser}/>
           <Routes>
           <Route path="*" element={<AuthHome/>} />
+          <Route path="profile" element={<Profile/>} />
           </Routes>
       </Router>
     </div>

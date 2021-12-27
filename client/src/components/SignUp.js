@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function SignUp({ setCurrentUser }) {
+  const navigate = useNavigate()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -25,6 +26,7 @@ function SignUp({ setCurrentUser }) {
       if (r.ok) {
         r.json().then((user) => {
           setCurrentUser(user);
+          navigate('/')
         });
       } else {
         r.json().then((err) => setErrors(err.errors))}

@@ -6,7 +6,7 @@ import UnAuth from "./UnAuthenticatedApp";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  // const [authChecked , setAuthChecked] = useState(null);
+  const [authChecked , setAuthChecked] = useState(null);
 
 
   useEffect(() => {
@@ -16,11 +16,8 @@ function App() {
       if (res.ok) {
         res.json().then((data) => {
           setCurrentUser(data);
-          // setAuthChecked(true)
+          setAuthChecked(true)
         });}
-      // } else {
-      //   setAuthChecked(false);
-      // }
     });
   }, []);
 
