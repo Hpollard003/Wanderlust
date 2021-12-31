@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :pages
-  resources :journels
+  resources :journals
   resources :users
 
 

@@ -4,7 +4,7 @@ class CreatePages < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :body
       t.string :image
-      t.integer :journel_id
+      t.integer :journal_id
 
       t.timestamps
     end

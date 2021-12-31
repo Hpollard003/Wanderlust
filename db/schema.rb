@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2021_12_15_162819) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "journels", force: :cascade do |t|
+  create_table "journals", force: :cascade do |t|
     t.string "title"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_12_15_162819) do
     t.string "title"
     t.string "body"
     t.string "image"
-    t.integer "journel_id"
+    t.integer "journal_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,6 +1,6 @@
-class CreateJournels < ActiveRecord::Migration[6.1]
+class CreateJournals < ActiveRecord::Migration[6.1]
   def change
-    create_table :journels do |t|
+    create_table :journals do |t|
       t.string :title
       t.integer :user_id
 

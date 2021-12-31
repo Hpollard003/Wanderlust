@@ -7,6 +7,6 @@ class User < ApplicationRecord
     validates :password, presence: true
     validates :password_confirmation, presence: true
 
-    has_many :journels
+    has_many :journals
     
 end

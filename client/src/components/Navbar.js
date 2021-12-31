@@ -18,7 +18,7 @@ export const Navbar = ({setCurrentUser}) => {
           </a>
         </li>
         <li className="nav-item">
-          <a className="shadow-lg nav-link text-dark fw-bold border-start border-end border-info border-2 rounded" href="/journels">
+          <a className="shadow-lg nav-link text-dark fw-bold border-start border-end border-info border-2 rounded" href="/journals">
             Create Journal
           </a>
         </li>

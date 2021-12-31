@@ -44,6 +44,6 @@ class PagesController < ApplicationController
 
     # This method uses params which returns an ActionController::Parameters object
     def page_params
-        params.permit(:title, :journel_id)
+        params.permit(:title, :journal_id)
     end
 end

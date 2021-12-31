@@ -1,3 +1,3 @@
 class Page < ApplicationRecord
-    belongs_to :journel
+    belongs_to :journal
 end
