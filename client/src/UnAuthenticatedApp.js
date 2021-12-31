@@ -12,6 +12,7 @@ const UnAuth = ({setCurrentUser}) => {
           <Route path="/" element={<UnAuthHome/>} />
           <Route path="signup" element={<SignUp setCurrentUser={setCurrentUser}/>} />
           <Route path="login" element={<Login setCurrentUser={setCurrentUser}/>} />
+          <Route path="*" element={<UnAuthHome/>} />
           </Routes>
       </Router>
     </div>
