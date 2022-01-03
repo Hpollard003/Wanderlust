@@ -5,6 +5,8 @@ import NewPage from "./NewPage";
 
 const Pages = () => {
   const [pages, setPages] = useState([]);
+  const [toggled, setToggled] = useState(false);
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -46,11 +48,18 @@ const Pages = () => {
     const newbooks = pages.filter((book) => book.id !== parseInt(id));
     setPages(newbooks);
   };
+  const toggler = () => {
+    toggled ? setToggled(false) : setToggled(true);
+  };
 
   return (
     <div>
       <a href="/journals">X</a>
-      <NewPage addPageHandler={addPageHandler} />
+      <button onClick={toggler}>New Page</button>
+        <div hidden={!toggled}>
+          <NewPage addPageHandler={addPageHandler} />
+        </div>
+      
       <PageCards pages={pages} setPages={setPages} removeItem={removeItem} />
     </div>
   );

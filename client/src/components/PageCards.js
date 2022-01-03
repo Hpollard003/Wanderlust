@@ -1,6 +1,9 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
 const PageCards = ({pages , setPages, removeItem}) => {
+  const { id } = useParams
+
     return (
         <div>
         {pages.map((page, ind) => (
@@ -15,6 +18,7 @@ const PageCards = ({pages , setPages, removeItem}) => {
                 >
                   Remove
                 </button>
+                <a href={`/journals/edit/${page.journal_id}/pages/${page.id}`}>Edit</a>
             </div>
         ))}
     </div>

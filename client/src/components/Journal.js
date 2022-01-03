@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Editor from "./Editor";
 import { JournalCard } from "./JournalCard";
 import NewJournalForm from "./NewJournalForm";
 
 export const Journal = () => {
   const [journals, setJournals] = useState([]);
+  const [toggled, setToggled] = useState(false);
 
   useEffect(() => {
     fetch("/journals")
@@ -17,7 +17,7 @@ export const Journal = () => {
 
   const removeItem = (event) => {
     fetch(`/journals/${event.target.id}`, {
-      method: "DELETE"
+      method: "DELETE",
     })
       .then((resp) => resp.json())
       .then(() => {
@@ -46,13 +46,22 @@ export const Journal = () => {
     setJournals(newbooks);
   };
 
+  const toggleBtn = (e) => {
+    setToggled(true);
+  };
+
+  const toggler = () => {
+    toggled ? setToggled(false) : setToggled(true);
+  };
+
   return (
     <div>
       <h1>Journals</h1>
       <section className="container">
-        <h1>New Journal</h1>
-        {/* toggle form */}
-        <NewJournalForm addJournalHandler={addJournalHandler}/>
+        <button onClick={toggler}>New Journal</button>
+        <div hidden={!toggled}>
+          <NewJournalForm addJournalHandler={addJournalHandler} />
+        </div>
         <JournalCard
           journals={journals}
           setJournals={setJournals}

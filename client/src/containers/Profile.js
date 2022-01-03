@@ -29,6 +29,8 @@ export const Profile = (props) => {
     );
   };
 
+  
+
   return (
     <div className="">
       <h2 className="">Profile</h2>

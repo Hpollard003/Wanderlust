@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 
-const NewJournalForm = (props) => {
+const NewJournalForm = ({addJournalHandler , toggled , setToggled}) => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addJournalHandler({
+    addJournalHandler({
       title,
       image,
     });
   };
+
+
   return (
       <div>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}> 
       <div className="">
         <input
           type="text"

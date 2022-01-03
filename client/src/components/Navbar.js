@@ -16,7 +16,7 @@ export const Navbar = ({ setCurrentUser, currentUser }) => {
         {currentUser ? (
           <>
             <li className="nav-item ">
-              <Link to="/profile">Profile</Link>
+              <Link to={`/profile/${currentUser.username}`}>Profile</Link>
             </li>
 
             <li className="nav-item">
