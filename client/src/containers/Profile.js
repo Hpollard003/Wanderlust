@@ -21,11 +21,11 @@ export const Profile = (props) => {
     return (
       <div>
         <img
-          src={`${user.img_url}` ? `${user.img_url}` : "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F-MPQv3-0XWfk%2FVSk4Gb4MgSI%2FAAAAAAAAAWI%2FJhy6FdCIPKM%2Fs1600%2FSileut%252BLuffy.jpg&f=1&nofb=1"}
-          className=""
+          src={`${user.image}` ? `${user.image}` : "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F-MPQv3-0XWfk%2FVSk4Gb4MgSI%2FAAAAAAAAAWI%2FJhy6FdCIPKM%2Fs1600%2FSileut%252BLuffy.jpg&f=1&nofb=1"}
+          className="w-25 h-25"
           alt={`${user.username} pic`}
         />
-        <h2 className="">{user.username}</h2>
+        <h2 className="">Hello {user.username}</h2>
       </div>
     );
   };

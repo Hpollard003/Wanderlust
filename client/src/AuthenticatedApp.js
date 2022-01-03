@@ -11,10 +11,10 @@ import EditProfile from "./components/EditProfile";
 
 const Auth = ({ setCurrentUser, currentUser }) => {
   return (
-    <div>
+    <div className="">
       <Router>
         <Navbar setCurrentUser={setCurrentUser} currentUser={currentUser} />
-        <Routes>
+        <Routes className="main">
           <Route path="/" element={<AuthHome />} />
           <Route path="profile/:username" element={<Profile />} />
           <Route path="journals" element={<Journals />}>
