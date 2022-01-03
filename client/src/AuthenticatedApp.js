@@ -1,26 +1,27 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AuthHome from "./containers/AuthHome";
-import {Navbar} from "./components/Navbar"
+import { Navbar } from "./components/Navbar";
 import Profile from "./containers/Profile";
 import Journals from "./containers/JournalsPage";
 import PagesPage from "./containers/PagesPage";
 import AboutPage from "./containers/AboutPage";
+import Editor from "./components/Editor";
 
-
-const Auth = ({setCurrentUser, currentUser}) => {
+const Auth = ({ setCurrentUser, currentUser }) => {
   return (
-      <div>
+    <div>
       <Router>
-      <Navbar setCurrentUser={setCurrentUser} currentUser={currentUser} />
-          <Routes>
-          <Route path="/" element={<AuthHome/>} />
-          <Route path="profile" element={<Profile/>} />
-          <Route path="journals" element={<Journals/>}>
-            <Route path=":id" element={<PagesPage/>} />
+        <Navbar setCurrentUser={setCurrentUser} currentUser={currentUser} />
+        <Routes>
+          <Route path="/" element={<AuthHome />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="journals" element={<Journals />}>
+            <Route path=":id" element={<PagesPage />} />
           </Route>
-          <Route path="about" element={<AboutPage/>} />
-          <Route path="*" element={<AuthHome/>} />
-          </Routes>
+          <Route path="journals/edit/:id" element={<Editor />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="*" element={<AuthHome />} />
+        </Routes>
       </Router>
     </div>
   );

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
+import Editor from "./Editor";
 import { JournalCard } from "./JournalCard";
 import NewJournalForm from "./NewJournalForm";
 
 export const Journal = () => {
   const [journals, setJournals] = useState([]);
-  const [id , setId] = useState(null)
 
   useEffect(() => {
     fetch("/journals")
@@ -51,6 +51,7 @@ export const Journal = () => {
       <h1>Journals</h1>
       <section className="container">
         <h1>New Journal</h1>
+        {/* toggle form */}
         <NewJournalForm addJournalHandler={addJournalHandler}/>
         <JournalCard
           journals={journals}
