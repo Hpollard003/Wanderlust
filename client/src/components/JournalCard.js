@@ -1,32 +1,22 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 
 export const JournalCard = (props) => {
-
+  const nav = useNavigate()
 
   const renderjournalList = () => {
     return (
-      <div className="row">
+      <div className="row" >
         {props.journals.map((journal, ind) => (
-          <div className="col" key={`${journal.id}`}>
-            <div className="">
-              <img
-                src={"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.istockphoto.com%2Fvectors%2Fclassic-story-book-cover-vector-id178658028%3Fk%3D6%26m%3D178658028%26s%3D612x612%26w%3D0%26h%3DBNP6fJL_ZVt9rSgcSSQ7Ysc1-XPTDfYC0mjDoIcOWAA%3D&f=1&nofb=1"
-                }
-                className=""
-                style={{ width: 190, height: "250px" }}
-                alt={`${journal.name} img`}
-              />
-              <div className="row">
-                <h5 className="">
-                  {journal.name}
-                </h5>
-              </div>
-              <ul className="">
-                  <label className="">
-                    Title
-                  </label>{" "}
-                  <br></br> {journal.title}
+          <div className="col-3" key={`${journal.id}`} id={`${journal.id}`} onClick={(e) => {
+            nav(`/journals/${e.target.id}`)
+          }}>
+            <div className="card h-100 w-50" id={`${journal.id}`}>
+              <ul className="mt-5">
+                {journal.title}
               </ul>
+              </div>
               <div className="">
                 <button
                   onClick={props.removeItem}
@@ -37,7 +27,6 @@ export const JournalCard = (props) => {
                 </button>
               </div>
             </div>
-          </div>
         ))}
       </div>
     );

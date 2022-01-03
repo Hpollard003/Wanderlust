@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :pages
-  resources :journals
   resources :users
+  resources :journals do
+    resources :pages
+  end
+
 
 
     # Everything below is a custom route that get specific actions from specific controllers

@@ -28,12 +28,12 @@ function Login({ setCurrentUser }) {
   }
   
   return (
-    <div className="card shadow-lg w-25 position-absolute top-50 start-50 translate-middle">
-      <NavLink className="btn btn-outline-dark " to="/">
+    <div className="">
+      <NavLink className="" to="/">
         Home
       </NavLink>
-      <div className="card-header fs-3 text-center bg-info">Login</div>
-      {error ? (<div className="alert alert-danger text-center" role="alert">{error}</div>) : (<div hidden={true} >{error}</div>)}
+      <div className="">Login</div>
+      {error ? (<div className="" role="alert">{error}</div>) : (<div hidden={true} >{error}</div>)}
       <form
         onSubmit={handleSubmit}
         className="list-group list-group-flush"

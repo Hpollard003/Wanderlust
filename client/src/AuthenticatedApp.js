@@ -3,6 +3,7 @@ import AuthHome from "./containers/AuthHome";
 import {Navbar} from "./components/Navbar"
 import Profile from "./containers/Profile";
 import Journals from "./containers/JournalsPage";
+import PagesPage from "./containers/PagesPage";
 
 
 const Auth = ({setCurrentUser, currentUser}) => {
@@ -13,7 +14,9 @@ const Auth = ({setCurrentUser, currentUser}) => {
           <Routes>
           <Route path="/" element={<AuthHome/>} />
           <Route path="profile" element={<Profile/>} />
-          <Route path="journals" element={<Journals/>}/>
+          <Route path="journals" element={<Journals/>}>
+            <Route path=":id" element={<PagesPage/>} />
+          </Route>
           <Route path="*" element={<AuthHome/>} />
           </Routes>
       </Router>

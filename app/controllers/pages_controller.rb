@@ -9,7 +9,7 @@ class PagesController < ApplicationController
 
     # Show finds a page by their id 
     def show 
-        page = find_page
+        page = Page.find_by(id: params[:id])
         render json: page, status: :ok
     end
 
@@ -41,6 +41,7 @@ class PagesController < ApplicationController
     def find_page
         @page = Page.find_by(id: params[:id])
     end
+
 
     # This method uses params which returns an ActionController::Parameters object
     def page_params
