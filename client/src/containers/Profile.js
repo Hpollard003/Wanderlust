@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+// import Uploader from "../components/FilePond";
 
 export const Profile = (props) => {
   const [user, setUser] = useState([]);
@@ -35,7 +36,9 @@ export const Profile = (props) => {
     <div className="">
       <h2 className="">Profile</h2>
       {renderProfile()}
+      <Link className="btn btn-outline-info" to={`/profile/edit/${user.id}`}>Edit Profile</Link>
       <Link className="btn btn-outline-info" to="/journals">New Journal</Link>
+      {/* <Uploader/> */}
     </div>
   );
 };

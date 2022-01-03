@@ -3,6 +3,7 @@ User.create(username: 'Felix003', password: 'password', password_confirmation: '
 User.create(username: 'Hpollard', password: 'password', password_confirmation: 'password')
 puts "Created 😀"
 
+
 Journal.create(title: "EuroTrip", user_id: 1)
 Journal.create(title: "Japan", user_id: 1)
 Journal.create(title: "London", user_id: 1)

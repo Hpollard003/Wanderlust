@@ -7,6 +7,7 @@ import PagesPage from "./containers/PagesPage";
 import AboutPage from "./containers/AboutPage";
 import Editor from "./components/Editor";
 import PageEditor from "./components/PageEditor";
+import EditProfile from "./components/EditProfile";
 
 const Auth = ({ setCurrentUser, currentUser }) => {
   return (
@@ -21,6 +22,7 @@ const Auth = ({ setCurrentUser, currentUser }) => {
           </Route>
           <Route path="journals/edit/:id" element={<Editor />} />
           <Route path="journals/edit/:id/pages/:pageId" element={<PageEditor />} />
+          <Route path="profile/edit/:user_id" element={<EditProfile />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="*" element={<AuthHome />} />
         </Routes>

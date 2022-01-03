@@ -14,9 +14,9 @@ const PageCards = ({pages , setPages, removeItem}) => {
                 <button
                   onClick={removeItem}
                   id={page.id}
-                  className="btn btn-outline-danger"
+                  className=""
                 >
-                  Remove
+                  Delete
                 </button>
                 <a href={`/journals/edit/${page.journal_id}/pages/${page.id}`}>Edit</a>
             </div>

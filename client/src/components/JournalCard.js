@@ -23,7 +23,7 @@ export const JournalCard = (props) => {
                   id={journal.id}
                   className=""
                 >
-                  Remove
+                  Delete
                 </button>
                 <a href={`/journals/edit/${journal.id}`}>Edit</a>
               </div>

@@ -8,5 +8,6 @@ class User < ApplicationRecord
     validates :password_confirmation, presence: true
 
     has_many :journals
+    has_one_attached :avatar 
     
 end

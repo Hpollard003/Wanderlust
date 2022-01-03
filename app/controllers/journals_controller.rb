@@ -21,9 +21,11 @@ class JournalsController < ApplicationController
 
     # Update edits the journal by allowing new values for the permitted params to replace the old ones
     def update
-        journal = find_journal
-        journal.update!(journal_params)
-        render json: journal, status: :ok
+        if @current_user
+            journal = find_journal
+            journal.update!(journal_params)
+            render json: journal, status: :ok
+        end
     end
 
     # Destroy deletes the journal from the db and finds which one to delete by its id
@@ -34,15 +36,6 @@ class JournalsController < ApplicationController
             render json:{message: "Deleted journal"}
         end
     end
-    # def destroy
-    #     journal = find_journal
-    #     if journal
-    #       journal.destroy
-    #       head :no_content
-    #     else
-    #       render json: { error: "Journal not found" }, status: :not_found
-    #     end
-    #   end 
 
     private
 
