@@ -4,19 +4,21 @@ import {Navbar} from "./components/Navbar"
 import Profile from "./containers/Profile";
 import Journals from "./containers/JournalsPage";
 import PagesPage from "./containers/PagesPage";
+import AboutPage from "./containers/AboutPage";
 
 
 const Auth = ({setCurrentUser, currentUser}) => {
   return (
       <div>
       <Router>
-      <Navbar setCurrentUser={setCurrentUser} currentUser={currentUser}/>
+      <Navbar setCurrentUser={setCurrentUser} currentUser={currentUser} />
           <Routes>
           <Route path="/" element={<AuthHome/>} />
           <Route path="profile" element={<Profile/>} />
           <Route path="journals" element={<Journals/>}>
             <Route path=":id" element={<PagesPage/>} />
           </Route>
+          <Route path="about" element={<AboutPage/>} />
           <Route path="*" element={<AuthHome/>} />
           </Routes>
       </Router>

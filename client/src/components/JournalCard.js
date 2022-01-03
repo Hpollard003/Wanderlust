@@ -9,10 +9,10 @@ export const JournalCard = (props) => {
     return (
       <div className="row" >
         {props.journals.map((journal, ind) => (
-          <div className="col-3" key={`${journal.id}`} id={`${journal.id}`} onClick={(e) => {
+          <div className="col-3" key={ind} id={journal.id} onClick={(e) => {
             nav(`/journals/${e.target.id}`)
           }}>
-            <div className="card h-100 w-50" id={`${journal.id}`}>
+            <div className="card h-100 w-50" id={journal.id}>
               <ul className="mt-5">
                 {journal.title}
               </ul>

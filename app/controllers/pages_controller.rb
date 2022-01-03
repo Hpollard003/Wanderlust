@@ -15,7 +15,7 @@ class PagesController < ApplicationController
 
     # Create, creates a new page based on the parameters passed and adds it to the pages table where it recieves an id
     def create
-        new_page = Pages.create!(page_params)
+        new_page = Page.create!(page_params)
         render json: new_page, status: :created
     end
 
@@ -29,7 +29,7 @@ class PagesController < ApplicationController
     # Destroy deletes the page from the db and finds which one to delete by its id
     def destroy
         if @current_user
-            user = Pages.find_by(id: params[:id])
+            user = Page.find_by(id: params[:id])
             user.destroy
             render json:{message: "Deleted page"}
         end
@@ -45,6 +45,6 @@ class PagesController < ApplicationController
 
     # This method uses params which returns an ActionController::Parameters object
     def page_params
-        params.permit(:title, :journal_id)
+        params.permit(:title, :body, :image, :journal_id)
     end
 end
