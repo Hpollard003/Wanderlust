@@ -6,8 +6,8 @@ import Journal from '../components/Journal'
 export const Journals = () => {
     return(
         <div>
-            <Journal/>
             <Outlet/>
+            <Journal/>
 
         </div>
     )

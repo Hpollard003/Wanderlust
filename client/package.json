@@ -2,8 +2,9 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "localhost:3000",
+  "proxy": "http://localhost:3000",
   "dependencies": {
+    "@craco/craco": "^6.4.3",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -11,17 +12,19 @@
     "filepond": "^4.30.3",
     "filepond-plugin-image-exif-orientation": "^1.0.11",
     "filepond-plugin-image-preview": "^4.6.10",
+    "mdb-react-ui-kit": "^2.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-filepond": "^7.1.1",
+    "react-icons": "^4.3.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "web-vitals": "^2.1.2"
   },
   "scripts": {
     "start": "PORT=4000 react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

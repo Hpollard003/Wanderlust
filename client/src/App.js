@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import './App.css'
 // import { BrowserRouter as Router } from "react-router-dom";
 import Auth from "./AuthenticatedApp";
 import UnAuth from "./UnAuthenticatedApp";
+import Footer from "./components/Footer";
 
 
 
@@ -27,12 +29,13 @@ function App() {
   // }
 
   return (
-    <div>
+    <div >
       {currentUser ? (
         <Auth setCurrentUser={setCurrentUser} currentUser={currentUser} />
         ) : (
           <UnAuth setCurrentUser={setCurrentUser} />
           )}
+          <Footer/>
     </div>
   );
 }

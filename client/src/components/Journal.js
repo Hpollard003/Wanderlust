@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { JournalCard } from "./JournalCard";
 import NewJournalForm from "./NewJournalForm";
+import PaperPlane from "../assets/paperPlane.gif";
 
 export const Journal = () => {
   const [journals, setJournals] = useState([]);
@@ -46,19 +47,18 @@ export const Journal = () => {
     setJournals(newbooks);
   };
 
-  const toggleBtn = (e) => {
-    setToggled(true);
-  };
 
   const toggler = () => {
     toggled ? setToggled(false) : setToggled(true);
   };
 
   return (
-    <div>
-      <h1>Journals</h1>
-      <section className="container">
-        <button onClick={toggler}>New Journal</button>
+    <div className="text-light">
+      <h1>Journals                <span>
+                  <img src={PaperPlane} alt="" height="100" loading="lazy" />
+                </span></h1>
+      <section className="container text-end">
+        <button className="btn btn-info " onClick={toggler}>New Journal</button>
         <div hidden={!toggled}>
           <NewJournalForm addJournalHandler={addJournalHandler} />
         </div>

@@ -74,7 +74,7 @@ export const PageEditor = () => {
               }}
             />
           </div>
-          <div className="mb-3 list-group-item bg-transparent">
+          <div className="">
             <input
               type="text"
               className="form-control"

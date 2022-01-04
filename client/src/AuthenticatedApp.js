@@ -16,7 +16,7 @@ const Auth = ({ setCurrentUser, currentUser }) => {
         <Navbar setCurrentUser={setCurrentUser} currentUser={currentUser} />
         <Routes className="main">
           <Route path="/" element={<AuthHome />} />
-          <Route path="profile/:username" element={<Profile />} />
+          <Route path="profile/" element={<Profile />} />
           <Route path="journals" element={<Journals />}>
             <Route path=":id" element={<PagesPage />} />
           </Route>
