@@ -15,6 +15,9 @@ const NewPage = (props) => {
         image,
         journal_id: id,
       });
+      setTitle('')
+      setBody('')
+      setImage('')
     };
     return (
         <div>
@@ -59,7 +62,7 @@ const NewPage = (props) => {
               }}
             />
           </div>
-          <button className="" type="submit">
+          <button className="btn btn-outline-success" type="submit">
             Submit
           </button>
       </form>

@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import AuthHome from "./containers/AuthHome";
+import Home from "./containers/Home";
 import { Navbar } from "./components/Navbar";
 import Profile from "./containers/Profile";
 import Journals from "./containers/JournalsPage";
@@ -15,7 +15,7 @@ const Auth = ({ setCurrentUser, currentUser }) => {
       <Router>
         <Navbar setCurrentUser={setCurrentUser} currentUser={currentUser} />
         <Routes className="main">
-          <Route path="/" element={<AuthHome />} />
+          <Route path="/" element={<Home />} />
           <Route path="profile/" element={<Profile />} />
           <Route path="journals" element={<Journals />}>
             <Route path=":id" element={<PagesPage />} />
@@ -24,7 +24,7 @@ const Auth = ({ setCurrentUser, currentUser }) => {
           <Route path="journals/edit/:id/pages/:pageId" element={<PageEditor />} />
           <Route path="profile/edit/:user_id" element={<EditProfile />} />
           <Route path="about" element={<AboutPage />} />
-          <Route path="*" element={<AuthHome />} />
+          <Route path="*" element={<Home />} />
         </Routes>
       </Router>
     </div>

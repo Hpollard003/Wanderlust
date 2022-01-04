@@ -65,25 +65,40 @@ export const Navbar = ({ setCurrentUser, currentUser }) => {
                     </MDBNavbarItem>
                     <MDBNavbarItem>
                       <MDBNavbarLink href="/journals">
-                        My Journals <MDBIcon fas icon="book-open" />
+                        My Journals
                       </MDBNavbarLink>
                     </MDBNavbarItem>
                   </>
                 ) : null}
               </MDBNavbarNav>
-              
-                <span>
-                  <img src={PaperPlane} alt="" height="100" loading="lazy" />
-                </span>
+
+              <span>
+                <img src={PaperPlane} alt="" height="100" loading="lazy" />
+              </span>
+            </MDBCollapse>
+          </MDBContainer>
               {currentUser ? (
                 <>
                   <div className="nav-link position-relative top-0 end-0">
                     <Logout setCurrentUser={setCurrentUser} />
                   </div>
                 </>
-              ) : null}
-            </MDBCollapse>
-          </MDBContainer>
+              ) : (
+                <div className="btn-group px-4">
+                  <Link
+                    className="shadow-lg btn btn-info btn-sm"
+                    to="/login"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    className="shadow-lg btn btn-info btn-sm"
+                    to="/signup"
+                  >
+                    Sign Up
+                  </Link>
+                </div>
+              )}
         </MDBNavbar>
       </div>
     </div>

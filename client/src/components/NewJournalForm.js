@@ -10,6 +10,8 @@ const NewJournalForm = ({addJournalHandler , toggled , setToggled}) => {
       title,
       image,
     });
+    setTitle('')
+    setImage('')
   };
 
 

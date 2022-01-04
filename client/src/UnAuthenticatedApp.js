@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import UnAuthHome from "./containers/UnAuthHome";
+import Home from "./containers/Home";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import {Navbar} from "./components/Navbar"
@@ -15,11 +15,11 @@ const UnAuth = ({setCurrentUser}) => {
       <Router>
       <Navbar setCurrentUser={setCurrentUser}/>
           <Routes>
-          <Route path="/" element={<UnAuthHome/>} />
+          <Route path="/" element={<Home/>} />
           <Route path="signup" element={<SignUp setCurrentUser={setCurrentUser}/>} />
           <Route path="login" element={<Login setCurrentUser={setCurrentUser}/>} />
           <Route path="about" element={<AboutPage/>} />
-          <Route path="*" element={<UnAuthHome/>} />
+          <Route path="*" element={<Home/>} />
           </Routes>
       </Router>
     </div>

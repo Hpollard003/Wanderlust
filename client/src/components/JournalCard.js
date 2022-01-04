@@ -20,7 +20,7 @@ export const JournalCard = (props) => {
             key={ind}
             id={journal.id}
           >
-            <MDBCard background="dark" className="text-white" id={journal.id} onClick={(e) => {
+            <MDBCard background="dark" className="text-light" id={journal.id} onClick={(e) => {
               nav(`/journals/${e.target.id}`);
             }}>
               <MDBCardImage

@@ -9,7 +9,7 @@ import {
   } from 'mdb-react-ui-kit';
 
 
-export const AuthHome = () => {
+export const Home = () => {
     return (
         <MDBCarousel showControls  fade interval={9000} style={{ maxHeight: '50rem' }}>
           <MDBCarouselInner>
@@ -39,7 +39,7 @@ export const AuthHome = () => {
         </MDBCarousel>
       );
 };
-export default AuthHome;
+export default Home;
 
 
 

@@ -1,28 +1,30 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React from "react";
+import { useParams } from "react-router-dom";
 
-const PageCards = ({pages , setPages, removeItem}) => {
-  const { id } = useParams
+const PageCards = ({ pages, setPages, removeItem }) => {
+  const { id } = useParams;
 
-    return (
-        <div>
-        {pages.map((page, ind) => (
-            <div key={ind} id={page.id}>
-                <img src={page.image} alt={page.title} />
-                <h1>{page.title}</h1>
-                <h2>{page.body}</h2>
-                <button
-                  onClick={removeItem}
-                  id={page.id}
-                  className=""
-                >
-                  Delete
-                </button>
-                <a href={`/journals/edit/${page.journal_id}/pages/${page.id}`}>Edit</a>
-            </div>
-        ))}
+  return (
+    <div className="page-list">
+      {pages.map((page, ind) => (
+          <article key={ind} id={page.id} className="page">
+            <img src={page.image} alt={page.title} />
+            <header className="page-header">{page.title}</header>
+            <p className="text-break">{page.body}</p>
+            <button
+              className="btn btn-sm btn-outline-danger"
+              onClick={removeItem}
+              id={page.id}
+            >
+              Delete
+            </button>
+            <a href={`/journals/edit/${page.journal_id}/pages/${page.id}`}>
+              Edit
+            </a>
+          </article>
+      ))}
     </div>
-    )
-}
+  );
+};
 
-export default PageCards
+export default PageCards;
