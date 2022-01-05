@@ -8,6 +8,20 @@ class User < ApplicationRecord
     validates :password_confirmation, presence: true
 
     has_many :journals
-    has_one_attached :avatar 
+    has_many_attached :images
+    # validate :acceptable_images
+
+    # def acceptable_images
+    #     return unless images.attached?
+      
+    #     unless images.byte_size <= 1.gigabyte
+    #       errors.add(:images, "is too big")
+    #     end
+      
+    #     acceptable_types = ["image/jpeg", "image/png"]
+    #     unless acceptable_types.include?(images.content_type)
+    #       errors.add(:images, "must be a JPEG or PNG")
+    #     end
+    #   end
     
 end

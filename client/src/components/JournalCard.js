@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Jgif from "../assets/journal.gif";
 import {
   MDBCard,
   MDBCardTitle,
@@ -8,46 +9,50 @@ import {
   MDBCardImage,
 } from "mdb-react-ui-kit";
 
-export const JournalCard = (props) => {
+export const JournalCard = ({journals, toggleOpt, removeItem}) => {
   const nav = useNavigate();
 
   const renderjournalList = () => {
     return (
       <div className="row">
-        {props.journals.map((journal, ind) => (
-          <div
-            className="col-4 p-3"
-            key={ind}
-            id={journal.id}
-          >
-            <MDBCard background="dark" className="text-light" id={journal.id} onClick={(e) => {
-              nav(`/journals/${e.target.id}`);
-            }}>
-              <MDBCardImage
-                overlay
-                src="https://mdbcdn.b-cdn.net/img/new/slides/017.webp"
-                alt="..."
-                id={journal.id}
-              />
+        {journals.map((journal, ind) => (
+          <div className="col-4 p-3" key={ind} id={journal.id}>
+              <div hidden={!toggleOpt} className=" text-end">
+            
+            <button
+              onClick={removeItem}
+              id={journal.id}
+              className="btn btn-outline-danger rounded-circle"
+            >
+              
+              <i id={journal.id} class="fas fa-trash" ></i>
+            </button>
+            <a
+              className="btn btn-outline-primary rounded-circle"
+              href={`/journals/edit/${journal.title}/${journal.id}`}
+            >
+              <i class="far fa-edit" ></i>
+            </a>
+            </div>
+        
+            <MDBCard
+              background=""
+              className="text-light bg-transparent"
+              id={journal.id}
+              onClick={(e) => {
+                nav(`${e.target.id}`);
+                window.scrollTo(0, 0);
+              }}
+            >
+              <MDBCardImage overlay src={Jgif} alt="..." id={journal.id} />
               <MDBCardOverlay id={journal.id}>
-                <MDBCardTitle id={journal.id}>{journal.title}</MDBCardTitle>
+                <MDBCardTitle id={journal.id} className="text-gradient">
+                  {journal.title}
+                </MDBCardTitle>
               </MDBCardOverlay>
+                <MDBCardFooter className="text-light footer-bg-gradient"></MDBCardFooter>
             </MDBCard>
-            <MDBCardFooter >
-              <button
-                onClick={props.removeItem}
-                id={journal.id}
-                className="btn btn-outline-danger"
-              >
-                Delete
-              </button>
-              <a
-                className="btn btn-outline-primary"
-                href={`/journals/edit/${journal.id}`}
-              >
-                Edit
-              </a></MDBCardFooter>
-          </div>
+            </div>
         ))}
       </div>
     );

@@ -16,13 +16,13 @@ const Auth = ({ setCurrentUser, currentUser }) => {
         <Navbar setCurrentUser={setCurrentUser} currentUser={currentUser} />
         <Routes className="main">
           <Route path="/" element={<Home />} />
-          <Route path="profile/" element={<Profile />} />
-          <Route path="journals" element={<Journals />}>
+          <Route path="profile/:username" element={<Profile />} />
+          <Route path="journals/:username" element={<Journals />}>
             <Route path=":id" element={<PagesPage />} />
           </Route>
-          <Route path="journals/edit/:id" element={<Editor />} />
+          <Route path="journals/edit/:titleText/:id" element={<Editor />} />
           <Route path="journals/edit/:id/pages/:pageId" element={<PageEditor />} />
-          <Route path="profile/edit/:user_id" element={<EditProfile />} />
+          <Route path="profile/edit/:user_id/:userName" element={<EditProfile />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="*" element={<Home />} />
         </Routes>

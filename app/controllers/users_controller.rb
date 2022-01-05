@@ -14,8 +14,15 @@ class UsersController < ApplicationController
     end
 
     def update
+      if @current_user
       user = @current_user
       user.update!(user_params)
+      render json: user, status: :ok
+      end
+    end
+
+    def upload
+      user = @current_user.images.attach(user_params[:images])
       render json: user, status: :ok
     end
 
@@ -28,7 +35,7 @@ class UsersController < ApplicationController
     # Below are the parameters for creating a new user
     private
     def user_params
-      params.permit(:image, :username, :password, :password_confirmation, :avatar)
+      params.permit(:id, :username, :password, :password_confirmation, :images) 
     end
 
     def find_user

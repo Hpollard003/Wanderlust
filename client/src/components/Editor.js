@@ -4,8 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 export const Editor = () => {
   const [journals, setJournals] = useState([]);
   const [title, setTitle] = useState('');
-  const [image, setImage] = useState("");
-  const { id } = useParams();
+  const { id, titleText } = useParams();
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -35,42 +34,27 @@ export const Editor = () => {
   const editBtn = (e) => {
     e.preventDefault();
     editJournalHandler({
-      title,
-      image,
+      title
     });
-    navigate('/journals')
+    navigate(-1)
   };
 
   return (
     <div>
-      <div className="">
+      <div className="card shadow-lg w-25 position-absolute top-50 start-50 translate-middle bg-transparent">
         <form onSubmit={editBtn} className="list-group list-group-flush">
-          <div className="mb-3 list-group-item bg-transparent">
             <input
               type="text"
               className="form-control"
               name="name"
               id="name"
               placeholder="Name"
-              value={title}
+              defaultValue={titleText}
+              // value={title}
               onChange={(e) => {
                 setTitle(e.target.value);
               }}
             />
-          </div>
-          <div className="mb-3 list-group-item bg-transparent">
-            <input
-              type="text"
-              className="form-control"
-              name="img_url"
-              id="img_url"
-              placeholder="Enter Image Url"
-              value={image}
-              onChange={(e) => {
-                setImage(e.target.value);
-              }}
-            />
-          </div>
           <button className="btn btn-info" type="submit">
             Submit
           </button>

@@ -1,3 +1,14 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :password_digest, :image, :avatar
+  include Rails.application.routes.url_helpers
+  include ImageConcern
+
+  attributes :id, :username, :images_urls
+
+  def images_urls
+    object.images.map do |image|
+      url_for(image)
+    end
+  end
+
+
 end

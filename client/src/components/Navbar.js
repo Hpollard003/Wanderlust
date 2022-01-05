@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 import Logout from "./Logout";
 import WanderlustGif from "../assets/wanderlust.gif";
 import PaperPlane from "../assets/paperPlane.gif";
@@ -17,18 +17,17 @@ import {
 
 export const Navbar = ({ setCurrentUser, currentUser }) => {
   const [showBasic, setShowBasic] = useState(false);
+  const nav = useNavigate()
 
   return (
     <div className="">
-      <div className="bg-image p-2 text-center shadow-3-strong text-white">
+      <div className="bg-imagetext-center shadow-3-strong text-white">
         <MDBNavbar
           expand="lg"
-          dark
-          bgColor="dark"
-          className="rounded rounded-pill bg-gradient"
+          className=""
         >
           <MDBContainer fluid>
-            <MDBNavbarBrand href="/">
+            <MDBNavbarBrand className="text-gradient" onClick={() => nav('/')}>
               {" "}
               <img
                 src={WanderlustGif}
@@ -40,65 +39,65 @@ export const Navbar = ({ setCurrentUser, currentUser }) => {
               WanderLust
               <p className="fs-6 fw-lighter">Create Digital Travel Journals</p>
             </MDBNavbarBrand>
+            <span>
+                <img src={PaperPlane} alt="" height="90" loading="lazy" />
+              </span>
 
             <MDBNavbarToggler
-              className="rounded rounded-circle"
+              className="fw-lighter"
               aria-controls="navbarSupportedContent"
               aria-expanded="false"
               aria-label="Toggle navigation"
               onClick={() => setShowBasic(!showBasic)}
             >
-              <MDBIcon icon="bars" fas />
+              {!showBasic ? (<MDBIcon className="text-light" icon="angle-double-down" fas />) : (<MDBIcon className="text-light" icon="angle-double-up" fas />)}
+              
             </MDBNavbarToggler>
 
             <MDBCollapse navbar show={showBasic}>
-              <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
+              <MDBNavbarNav className="mr-auto mb-2 mb-lg-0 navbar-gradient">
                 <MDBNavbarItem>
-                  <MDBNavbarLink aria-current="page" href="/about">
+                  <MDBNavbarLink onClick={() => nav('/about')}>
                     About
                   </MDBNavbarLink>
                 </MDBNavbarItem>
                 {currentUser ? (
                   <>
                     <MDBNavbarItem>
-                      <MDBNavbarLink href="/profile">Profile</MDBNavbarLink>
+                      <MDBNavbarLink onClick={() => nav(`/profile/${currentUser.username}`)}>Profile</MDBNavbarLink>
                     </MDBNavbarItem>
                     <MDBNavbarItem>
-                      <MDBNavbarLink href="/journals">
+                      <MDBNavbarLink onClick={() => nav(`/journals/${currentUser.username}`)}>
                         My Journals
                       </MDBNavbarLink>
                     </MDBNavbarItem>
                   </>
                 ) : null}
               </MDBNavbarNav>
-
-              <span>
-                <img src={PaperPlane} alt="" height="100" loading="lazy" />
-              </span>
-            </MDBCollapse>
-          </MDBContainer>
               {currentUser ? (
                 <>
-                  <div className="nav-link position-relative top-0 end-0">
+                  <div className="nav-link ">
                     <Logout setCurrentUser={setCurrentUser} />
                   </div>
                 </>
               ) : (
-                <div className="btn-group px-4">
-                  <Link
-                    className="shadow-lg btn btn-info btn-sm"
-                    to="/login"
+                <div className="row">
+                  <button
+                    className="shadow-lg btn btn-outline-info btn-sm"
+                    onClick={() => nav('/login')}
                   >
                     Login
-                  </Link>
-                  <Link
+                  </button>
+                  <button
                     className="shadow-lg btn btn-info btn-sm"
-                    to="/signup"
+                    onClick={() => nav('/signup')}
                   >
                     Sign Up
-                  </Link>
+                  </button>
                 </div>
               )}
+            </MDBCollapse>
+          </MDBContainer>
         </MDBNavbar>
       </div>
     </div>

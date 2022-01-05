@@ -7,8 +7,7 @@ const NewJournalForm = ({addJournalHandler , toggled , setToggled}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addJournalHandler({
-      title,
-      image,
+      title
     });
     setTitle('')
     setImage('')
@@ -17,11 +16,11 @@ const NewJournalForm = ({addJournalHandler , toggled , setToggled}) => {
 
   return (
       <div>
-    <form onSubmit={handleSubmit}> 
-      <div className="">
+    <form onSubmit={handleSubmit} className="list-group list-group-flush w-25 "> 
+ 
         <input
           type="text"
-          className="form-control"
+          className="list-group-item"
           name="title"
           id="title"
           placeholder="title"
@@ -30,21 +29,7 @@ const NewJournalForm = ({addJournalHandler , toggled , setToggled}) => {
             setTitle(e.target.value);
           }}
         />
-      </div>
-      <div className="">
-          <input
-            type="text"
-            className="form-control"
-            name="Image"
-            id="name"
-            placeholder="Image Url"
-            value={image}
-            onChange={(e) => {
-              setImage(e.target.value);
-            }}
-          />
-        </div>
-        <button className="" type="submit">
+        <button className="btn btn-green" type="submit">
           Submit
         </button>
     </form>

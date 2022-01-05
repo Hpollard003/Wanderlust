@@ -40,34 +40,30 @@ function SignUp({ setCurrentUser }) {
   }
 
   return (
-    <div className="">
-      <NavLink className="" to="/">Home</NavLink>
-      <div className="">Signup</div>
+    <div className="card shadow-lg w-25 position-absolute top-50 start-50 translate-middle bg-transparent">
+      <div className="card-header fs-3 text-center bg-green">Signup</div>
       <form
         onSubmit={handleSubmit}
-        className=""
-        autoComplete="on"
+        className="list-group list-group-flush"
         >
         <input
-          className=""
+           className="list-group-item"
           type="text"
           id="username"
-          autoComplete="on"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           />
         <input
-          className=""
+           className="list-group-item"
           type="password"
           id="password"
-          autoComplete="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           />
         <input
-          className=""
+           className="list-group-item"
           type="password"
           id="password_confirmation"
           autoComplete="password"
@@ -76,7 +72,7 @@ function SignUp({ setCurrentUser }) {
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           />
         <input
-          className=""
+           className="list-group-item"
           type="img"
           id="imageUrl"
           placeholder="Set Img Url for profile picture"
@@ -84,11 +80,11 @@ function SignUp({ setCurrentUser }) {
           onChange={(e) => setImage(e.target.value)}
           />
           {errors ? errorRender() : null}
-          <button className="" type="submit">
+          <button className="btn btn-info w-100" type="submit">
             Sign up
           </button>
       </form>
-      <NavLink to="/login" className="">Already a user? Login here.</NavLink>
+      <NavLink to="/login" className="btn btn-green p-1">Already a user? Login here.</NavLink>
     </div>
   );
 }

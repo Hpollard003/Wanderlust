@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
+
 // Import React FilePond
-import { FilePond, registerPlugin } from "react-filepond";
+import { FilePond, File, registerPlugin } from "react-filepond";
 
 // Import FilePond styles
 import "filepond/dist/filepond.min.css";
+import { useParams } from 'react-router-dom';
 
 // Import the Image EXIF Orientation and Image Preview plugins
 // Note: These need to be installed separately
@@ -18,6 +20,7 @@ registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 const Uploader = () => {
   const [files , setFiles] = useState([])
+  const { user_id } = useParams()
 
 
     return (
@@ -27,7 +30,16 @@ const Uploader = () => {
           allowMultiple={true}
           allowReorder={true}
           maxFiles={3}
-          onupdatefiles={setFiles}
+          server={{
+            url: "http://localhost:3000", 
+            process: {
+              url: `/users/${user_id}/upload-images`, 
+              method: "POST",
+              withCredentials: true
+                       
+            }
+          }}
+          onupdatefiles={fileItems => setFiles(fileItems.map(fileItem => fileItem.file))}
         />
       </div>
     );

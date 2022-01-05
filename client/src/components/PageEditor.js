@@ -45,10 +45,10 @@ export const PageEditor = () => {
   };
 
   return (
-    <div>
-      <div className="">
+
+      <div className="card shadow-lg w-25 position-absolute top-50 start-50 translate-middle bg-transparent">
         <form onSubmit={editBtn} className="list-group list-group-flush">
-          <div className="mb-3 list-group-item bg-transparent">
+ 
             <input
               type="text"
               className="form-control"
@@ -60,8 +60,8 @@ export const PageEditor = () => {
                 setTitle(e.target.value);
               }}
             />
-          </div>
-          <div className="mb-3 list-group-item bg-transparent">
+  
+
             <input
               type="text"
               className="form-control"
@@ -73,8 +73,8 @@ export const PageEditor = () => {
                 setBody(e.target.value);
               }}
             />
-          </div>
-          <div className="">
+
+
             <input
               type="text"
               className="form-control"
@@ -86,13 +86,12 @@ export const PageEditor = () => {
                 setImage(e.target.value);
               }}
             />
-          </div>
-          <button className="btn btn-info" type="submit">
+          <button className="btn btn-green" type="submit">
             Submit
           </button>
         </form>
       </div>
-    </div>
+
   );
 };
 export default PageEditor;

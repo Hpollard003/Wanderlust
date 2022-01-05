@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Uploader from "../components/FilePond";
 
 const EditProfile= () => {
-    const navigate = useNavigate()
-    const { user_id } = useParams();
+    const navigate = useNavigate() 
+    const { user_id , userName } = useParams();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -36,12 +37,12 @@ const EditProfile= () => {
   
     const errorRender = () => {
       return errors.map(err => {
-        return <div className="" >{err}</div>
+        return <div className="alert alert-warning w-50 " role="alert" >{err}</div>
       })
     }
   
     return (
-      <div className="">
+      <div className="p-5">
         <div className="">Edit Profile</div>
         <form
           onSubmit={handleSubmit}
@@ -75,14 +76,7 @@ const EditProfile= () => {
             value={passwordConfirmation}
             onChange={(e) => setPasswordConfirmation(e.target.value)}
             />
-          <input
-            className=""
-            type="img"
-            id="imageUrl"
-            placeholder="Set Img Url for profile picture"
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
-            />
+          <Uploader/>
             {errors ? errorRender() : null}
             <button className="" type="submit">
               Save

@@ -1,5 +1,14 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { MDBBtn,
+  MDBModal,
+  MDBModalDialog,
+  MDBModalContent,
+  MDBModalHeader,
+  MDBModalTitle,
+  MDBModalBody,
+  MDBModalFooter,
+} from 'mdb-react-ui-kit';
 
 function Login({ setCurrentUser }) {
     const navigate = useNavigate()
@@ -28,11 +37,8 @@ function Login({ setCurrentUser }) {
   }
   
   return (
-    <div className="">
-      <NavLink className="" to="/">
-        Home
-      </NavLink>
-      <div className="">Login</div>
+    <div className="card shadow-lg w-25 position-absolute top-50 start-50 translate-middle bg-transparent">
+      <h1 className="card-header fs-3 text-center bg-green">Login</h1>
       {error ? (<div className="" role="alert">{error}</div>) : (<div hidden={true} >{error}</div>)}
       <form
         onSubmit={handleSubmit}
@@ -56,11 +62,11 @@ function Login({ setCurrentUser }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           />
-        <button className="btn btn-outline-info w-100" type="submit">
+        <button className="btn btn-info w-100 p-1" type="submit">
           Login
         </button>
       </form>
-      <NavLink className="btn btn-outline-info" to="/Signup">
+      <NavLink className="btn btn-green p-1" to="/Signup">
         Click Here to create an account
       </NavLink>
     </div>

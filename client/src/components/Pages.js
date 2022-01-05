@@ -6,9 +6,10 @@ import NewPage from "./NewPage";
 const Pages = () => {
   const [pages, setPages] = useState([]);
   const [toggled, setToggled] = useState(false);
+  const [toggleOpt, setToggleOpt] = useState(false);
   const nav = useNavigate()
 
-  const { id } = useParams();
+  const { id, username } = useParams();
 
   useEffect(() => {
     fetch(`/journals/${id}`)
@@ -52,16 +53,22 @@ const Pages = () => {
   const toggler = () => {
     toggled ? setToggled(false) : setToggled(true);
   };
+  const optionsToggler = () => {
+    toggleOpt ? setToggleOpt(false) : setToggleOpt(true);
+  };
 
   return (
     <div className="px-5">
-      <button onClick={toggler} className="btn btn-info">New Page</button>
-      <button onClick={() => nav("/journals")} className='btn btn-danger position-absolute end-0'>Close Journal</button>
+      <h1 className="text-center text-gradient">Pages </h1>
+      <button onClick={toggler} className={`btn ${!toggled ? "btn-info" : "btn-danger"} position-absolute start-0`}>{!toggled ? "New Page" : "Close"}</button>
+      <button onClick={() => nav(`/journals/${username}`)} 
+        className='btn btn-danger position-absolute end-0'>Close Journal</button>
+      <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-info" : "btn-danger"} btn-sm position-absolute my-5 end-0`}>{!toggleOpt ? <i class="fas fa-cogs"></i> : <i class="far fa-times-circle"></i>}</button>  
         <div hidden={!toggled}>
           <NewPage addPageHandler={addPageHandler} />
         </div>
       
-      <PageCards pages={pages} setPages={setPages} removeItem={removeItem} />
+      <PageCards pages={pages} setPages={setPages} removeItem={removeItem} toggleOpt={toggleOpt}/>
     </div>
   );
 };

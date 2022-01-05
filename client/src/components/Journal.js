@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { JournalCard } from "./JournalCard";
 import NewJournalForm from "./NewJournalForm";
-import PaperPlane from "../assets/paperPlane.gif";
 
 export const Journal = () => {
   const [journals, setJournals] = useState([]);
   const [toggled, setToggled] = useState(false);
+  const [toggleOpt, setToggleOpt] = useState(false);
 
   useEffect(() => {
     fetch("/journals")
@@ -47,25 +47,33 @@ export const Journal = () => {
     setJournals(newbooks);
   };
 
-
   const toggler = () => {
     toggled ? setToggled(false) : setToggled(true);
   };
 
+  const optionsToggler = () => {
+    toggleOpt ? setToggleOpt(false) : setToggleOpt(true);
+  };
+
   return (
     <div className="text-light">
-      <h1>Journals                <span>
-                  <img src={PaperPlane} alt="" height="100" loading="lazy" />
-                </span></h1>
-      <section className="container text-end">
-        <button className="btn btn-info " onClick={toggler}>New Journal</button>
+      <h1 className="text-center text-gradient">Journals </h1>
+      <section className="container px-5">
+        <button
+          onClick={toggler}
+          className={`btn ${!toggled ? "btn-info" : "btn-danger"} position-absolute start-0`}
+        >
+          {!toggled ? "New Journal" : "Close"}
+        </button>
         <div hidden={!toggled}>
           <NewJournalForm addJournalHandler={addJournalHandler} />
         </div>
+        <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-info" : "btn-danger"} btn-sm position-absolute my-5 end-0`}>{!toggleOpt ? <i class="fas fa-cogs"></i> : <i class="far fa-times-circle"></i>}</button>
         <JournalCard
           journals={journals}
           setJournals={setJournals}
           removeItem={removeItem}
+          toggleOpt={toggleOpt}
         />
       </section>
     </div>
