@@ -22,7 +22,7 @@ function App() {
 
 
   return (
-    <div >
+    <div>
       {currentUser ? (
         <Auth setCurrentUser={setCurrentUser} currentUser={currentUser} />
         ) : (

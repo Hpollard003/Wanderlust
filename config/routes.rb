@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :invitations
-  resources :users
+  resources :users do
+    resources :invitations 
+  end
   resources :journals do
     resources :pages
   end

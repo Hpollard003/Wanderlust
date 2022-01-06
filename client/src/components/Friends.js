@@ -3,16 +3,16 @@ import FriendList from "./FriendsList";
 
 export const Friends = () => {
   const [friends, setFriends] = useState([]);
-  const [toggled, setToggled] = useState(false);
   const [toggleOpt, setToggleOpt] = useState(false);
+ 
 
   useEffect(() => {
     fetch("/users")
-      .then((resp) => resp.json())
+      .then((resp) => resp.json()) 
       .then((data) => {
-        setFriends(data);
-        console.log(friends);
-      });
+        setFriends(data)
+        // console.log(friends)
+      }); 
   }, []); 
 
   const removeFriend = (event) => {
@@ -25,21 +25,21 @@ export const Friends = () => {
       });
   };
 
-//   const addFriendsHandler = (friends) => {
-//     fetch("/invitations", {
-//       method: "PATCH",
-//       body: JSON.stringify(friends),
-//       headers: { "Content-Type": "application/json" },
-//     })
-//       .then((response) => response.json())
-//       .then((data) => {
-//         setFriends((prevFriends) => [
-//           ...prevFriends,
-//           { id: data.id, ...friends },
-//         ]);
-//         console.log(friends);
-//       });
-//   };
+  const addFriendsHandler = (friends) => {
+    fetch("/invitations", {
+      method: "PATCH",
+      body: JSON.stringify(friends), 
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setFriends((prevFriends) => [
+          ...prevFriends,
+          { id: data.id, ...friends },
+        ]);
+        console.log(friends);
+      });
+  };
 
   const filter = (id) => {
     const newFriends = friends.filter((user) => user.id !== parseInt(id));

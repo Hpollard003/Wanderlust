@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Jgif from "../assets/journal.gif";
+import Jgif from "../../assets/journal.gif";
 import {
   MDBCard,
   MDBCardTitle,
@@ -14,26 +14,9 @@ export const JournalCard = ({journals, toggleOpt, removeItem}) => {
 
   const renderjournalList = () => {
     return (
-      <div className="row">
+      <div className="row shadow">
         {journals.map((journal, ind) => (
           <div className="col-4 p-3" key={ind} id={journal.id}>
-              <div hidden={!toggleOpt} className=" text-end">
-            
-            <button
-              onClick={removeItem}
-              id={journal.id}
-              className="btn btn-outline-danger rounded-circle"
-            >
-              
-              <i id={journal.id} class="fas fa-trash" ></i>
-            </button>
-            <a
-              className="btn btn-outline-primary rounded-circle"
-              href={`/journals/edit/${journal.title}/${journal.id}`}
-            >
-              <i class="far fa-edit" ></i>
-            </a>
-            </div>
         
             <MDBCard
               background=""
@@ -46,8 +29,25 @@ export const JournalCard = ({journals, toggleOpt, removeItem}) => {
             >
               <MDBCardImage overlay src={Jgif} alt="..." id={journal.id} />
               <MDBCardOverlay id={journal.id}>
-                <MDBCardTitle id={journal.id} className="text-gradient">
-                  {journal.title}
+              <div hidden={!toggleOpt} className=" text-end">
+              <MDBCardTitle>
+            <button
+              onClick={removeItem}
+              id={journal.id}
+              className="btn btn-danger rounded-circle"
+            >
+              
+              <i id={journal.id} className="fas fa-trash" ></i>
+            </button>
+            <a
+              className="btn btn-primary rounded-circle"
+              href={`/journals/edit/${journal.title}/${journal.id}`}
+            >
+              <i className="far fa-edit" ></i>
+            </a></MDBCardTitle>
+            </div>
+                <MDBCardTitle id={journal.id} className="journal-text-gradient">
+                  <h3>{journal.title}</h3>
                 </MDBCardTitle>
               </MDBCardOverlay>
                 <MDBCardFooter className="text-light footer-bg-gradient"></MDBCardFooter>

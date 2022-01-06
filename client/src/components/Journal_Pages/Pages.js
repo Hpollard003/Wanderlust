@@ -63,7 +63,7 @@ const Pages = () => {
       <button onClick={toggler} className={`btn ${!toggled ? "btn-info" : "btn-danger"} position-absolute start-0`}>{!toggled ? "New Page" : "Close"}</button>
       <button onClick={() => nav(`/journals/${username}`)} 
         className='btn btn-danger position-absolute end-0'>Close Journal</button>
-      <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-info" : "btn-danger"} btn-sm position-absolute my-5 end-0`}>{!toggleOpt ? <i class="fas fa-cogs"></i> : <i class="far fa-times-circle"></i>}</button>  
+      <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-info" : "btn-danger"} btn-sm position-absolute my-5 end-0`}>{!toggleOpt ? <i className="fas fa-cogs"></i> : <i className="far fa-times-circle"></i>}</button>  
         <div hidden={!toggled}>
           <NewPage addPageHandler={addPageHandler} />
         </div>

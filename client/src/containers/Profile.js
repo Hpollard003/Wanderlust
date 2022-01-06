@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import PaperPlane from "../assets/paperPlane.gif";
+
 
 
 export const Profile = (props) => {

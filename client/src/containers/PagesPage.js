@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Pages from '../components/Pages'
+import Pages from '../components/Journal_Pages/Pages'
 
 const PagesPage = () => {
     return (

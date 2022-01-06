@@ -5,7 +5,7 @@ export const PageEditor = () => {
   const [pages, setPages] = useState([]);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
-  const [image, setImage] = useState("");
+  // const [image, setImage] = useState("");
   const { id } = useParams();
   const { pageId } = useParams();
   const navigate = useNavigate()
@@ -28,7 +28,7 @@ export const PageEditor = () => {
       .then((response) => response.json())
       .then((data) => {
         const copy = [...pages];
-        const index = copy.findIndex((book) => book.id == id);
+        const index = copy.findIndex((book) => book.id === id);
         copy[index] = data;
         setPages(copy);
       });
@@ -39,9 +39,9 @@ export const PageEditor = () => {
     editPageHandler({
       title,
       body,
-      image,
+      // image,
     });
-    navigate(`/journals/${id}`)
+    navigate(-1)
   };
 
   return (
@@ -68,6 +68,7 @@ export const PageEditor = () => {
               name="text"
               id="body"
               placeholder="Text"
+              maxLength="200"
               value={body}
               onChange={(e) => {
                 setBody(e.target.value);
@@ -75,7 +76,7 @@ export const PageEditor = () => {
             />
 
 
-            <input
+            {/* <input
               type="text"
               className="form-control"
               name="img_url"
@@ -85,7 +86,7 @@ export const PageEditor = () => {
               onChange={(e) => {
                 setImage(e.target.value);
               }}
-            />
+            /> */}
           <button className="btn btn-green" type="submit">
             Submit
           </button>

@@ -3,7 +3,7 @@ import { MDBFooter, MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 
 const Footer = () => {
   return (
-<MDBFooter bgColor='primary' className='text-white text-center text-lg-left navbar-bg-gradient sticky-lg-bottom'>
+<MDBFooter bgColor='primary' className='footer text-white text-center text-lg-left navbar-bg-gradient'>
     <MDBContainer className='p-4'>
       <MDBRow>
         <MDBCol lg='6' md='12' className='mb-4 mb-md-0'>

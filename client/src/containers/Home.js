@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-
-
+import ArcherGifs from "../assets/ArcherGifs";
 import {
   MDBCarousel,
-  MDBCarouselInner,
   MDBCarouselItem,
-  MDBCarouselElement,
+  MDBCarouselInner,
   MDBCarouselCaption,
+  MDBCarouselElement,
 } from "mdb-react-ui-kit";
-import ArcherGifs from "../components/ArcherGifs";
 
-export const Home = ({currentUser}) => {
+export const Home = ({ currentUser }) => {
   const [toggled, setToggled] = useState(false);
   const [stupidGifToggle, setStupidGifToggle] = useState(false);
 
@@ -20,19 +18,20 @@ export const Home = ({currentUser}) => {
   const stupidGif = () => {
     stupidGifToggle ? setStupidGifToggle(false) : setStupidGifToggle(true);
     window.scroll();
-
   };
   return (
     <div className="text-center m-5 ">
-      {!toggled ? (<h1>
-        Hello World.
-        <p>This is Wanderlust.</p>
-
-        <p>Create Digital Travel Journals.</p>
-      <div hidden={!stupidGifToggle}>
-        <ArcherGifs/>
-      </div>
-      </h1>) : (<MDBCarousel
+      {!toggled ? (
+        <h1>
+          Hello World.
+          <p>This is Wanderlust.</p>
+          <p>Create Digital Travel Journals.</p>
+          <div hidden={!stupidGifToggle}>
+            <ArcherGifs />
+          </div>
+        </h1>
+      ) : (
+        <MDBCarousel
           showControls
           className="m-4"
           fade
@@ -93,11 +92,32 @@ export const Home = ({currentUser}) => {
               </MDBCarouselCaption>
             </MDBCarouselItem>
           </MDBCarouselInner>
-        </MDBCarousel>)}
-      
-      <button className={`btn ${!toggled ? "btn-info" : "btn-danger"}`} onClick={toggler}>{!toggled ? "Gallery" : <><i class="fas fa-times"></i> Close Gallery</>} </button>
-      {" "}
-      <button className={`btn ${!stupidGifToggle ? "btn-info" : "btn-danger"}`} onClick={stupidGif} >{!stupidGifToggle ? "Click me" : <><i class="fas fa-times"></i> Close </>}</button>
+        </MDBCarousel>
+      )}
+      <button
+        className={`btn ${!toggled ? "btn-info" : "btn-danger"}`}
+        onClick={toggler}
+      >
+        {!toggled ? (
+          "Gallery"
+        ) : (
+          <>
+            <i class="fas fa-times"></i> Close Gallery
+          </>
+        )}{" "}
+      </button>{" "}
+      <button
+        className={`btn ${!stupidGifToggle ? "btn-info" : "btn-danger"}`}
+        onClick={stupidGif}
+      >
+        {!stupidGifToggle ? (
+          "Click me"
+        ) : (
+          <>
+            <i class="fas fa-times"></i> Close{" "}
+          </>
+        )}
+      </button>
     </div>
   );
 };

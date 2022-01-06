@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Logout from "./Logout";
+import { useNavigate } from "react-router-dom";
+import Logout from "./Auth/Logout";
 import WanderlustGif from "../assets/wanderlust.gif";
 import PaperPlane from "../assets/paperPlane.gif";
 import {
@@ -79,7 +79,7 @@ export const Navbar = ({ setCurrentUser, currentUser }) => {
                     </MDBNavbarItem>
                     <MDBNavbarItem>
                       <MDBNavbarLink
-                        onClick={() => nav(`/${currentUser.username}/friends/`)}
+                        onClick={() => nav(`/${currentUser.username}/${currentUser.id}/friends/`)}
                       >
                         Friends
                       </MDBNavbarLink>
@@ -88,11 +88,11 @@ export const Navbar = ({ setCurrentUser, currentUser }) => {
                 ) : null}
               </MDBNavbarNav>
               {currentUser ? (
-                <>
+               
                   <div className="nav-link ">
                     <Logout setCurrentUser={setCurrentUser} />
                   </div>
-                </>
+                
               ) : (
                 <div className="row">
                   <button

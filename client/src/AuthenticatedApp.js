@@ -5,9 +5,9 @@ import Profile from "./containers/Profile";
 import Journals from "./containers/JournalsPage";
 import PagesPage from "./containers/PagesPage";
 import AboutPage from "./containers/AboutPage";
-import Editor from "./components/Editor";
-import PageEditor from "./components/PageEditor";
-import EditProfile from "./components/EditProfile";
+import Editor from "./components/Editors/Editor";
+import PageEditor from "./components/Editors/PageEditor";
+import EditProfile from "./components/Editors/EditProfile";
 import FriendsPage from "./containers/FriendsPage";
 
 const Auth = ({ setCurrentUser, currentUser }) => {
@@ -22,7 +22,7 @@ const Auth = ({ setCurrentUser, currentUser }) => {
           <Route path="journals/:username" element={<Journals />}>
             <Route path=":id" element={<PagesPage />} />
           </Route>
-          <Route path="/:username/friends" element={<FriendsPage/>}/>
+          <Route path="/:username/:id/friends" element={<FriendsPage/>}/>
           <Route path="journals/edit/:titleText/:id" element={<Editor />} />
           <Route path="journals/edit/:id/pages/:pageId" element={<PageEditor />} />
           <Route path="profile/edit/:user_id/:userName" element={<EditProfile />} />

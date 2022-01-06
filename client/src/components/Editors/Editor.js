@@ -25,7 +25,7 @@ export const Editor = () => {
       .then((response) => response.json())
       .then((data) => {
         const copy = [...journals];
-        const index = copy.findIndex((book) => book.id == id);
+        const index = copy.findIndex((book) => book.id === id);
         copy[index] = data;
         setJournals(copy);
       });
@@ -50,7 +50,6 @@ export const Editor = () => {
               id="name"
               placeholder="Name"
               defaultValue={titleText}
-              // value={title}
               onChange={(e) => {
                 setTitle(e.target.value);
               }}

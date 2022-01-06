@@ -68,6 +68,7 @@ a {
 .page {
   height: 350px;
   width: 400px;
+  max-height: 400;
   min-width: 250px;
   padding: 1.5rem;
   border-radius: 16px;
@@ -123,6 +124,14 @@ a {
   background-clip: text;
 }
 
+.journal-text-gradient {
+  background: linear-gradient(140deg, #f9feff , #00ffd5, #000000);
+  text-shadow: #f3f3f3;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
 .navbar-gradient {
   background: linear-gradient(90deg, #ffffff, #00e1ff);
   text-shadow: none;
@@ -156,5 +165,8 @@ a {
   border-color: #c0ceaf;
 }
 
+.footer {
+  margin-bottom: 20px;
+}
 
 

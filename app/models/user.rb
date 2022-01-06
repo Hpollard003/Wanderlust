@@ -7,9 +7,10 @@ class User < ApplicationRecord
     validates :password, presence: true
     validates :password_confirmation, presence: true
 
-    has_many :journals
+    has_many :journals 
     
     has_many :invitations
+    has_many :friends, through: :invitations
     has_many :pending_invitations, -> { where confirmed: false }, class_name: 'Invitation', foreign_key: "friend_id"
   
     def friends
@@ -26,6 +27,7 @@ class User < ApplicationRecord
     def send_invitation(user)
       invitations.create(friend_id: user.id)
     end
+
 
 
     has_many_attached :images

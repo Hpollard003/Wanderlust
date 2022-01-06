@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const NewJournalForm = ({addJournalHandler , toggled , setToggled}) => {
   const [title, setTitle] = useState("");
-  const [image, setImage] = useState("");
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -10,7 +10,6 @@ const NewJournalForm = ({addJournalHandler , toggled , setToggled}) => {
       title
     });
     setTitle('')
-    setImage('')
   };
 
 

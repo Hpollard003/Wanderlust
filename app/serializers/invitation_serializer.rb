@@ -1,4 +1,4 @@
 class InvitationSerializer < ActiveModel::Serializer
-  attributes :id, :friend_id, :confirmed
+  attributes :id, :friend, :confirmed
   has_one :user
 end

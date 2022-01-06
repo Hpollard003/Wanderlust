@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Uploader from "../components/FilePond";
+// import Uploader from "../components/FilePond";
 
 const EditProfile= () => {
     const navigate = useNavigate() 
     const { user_id , userName } = useParams();
-    const [username, setUsername] = useState("");
+    const [username, setUsername] = useState(`${userName}`);
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
     const [image, setImage] = useState("");

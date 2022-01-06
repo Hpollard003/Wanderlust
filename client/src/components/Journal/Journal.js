@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { JournalCard } from "./JournalCard";
+import  JournalCard  from "./JournalCard";
 import NewJournalForm from "./NewJournalForm";
 
 export const Journal = () => {
@@ -68,7 +68,7 @@ export const Journal = () => {
         <div hidden={!toggled}>
           <NewJournalForm addJournalHandler={addJournalHandler} />
         </div>
-        <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-info" : "btn-danger"} btn-sm position-absolute my-5 end-0`}>{!toggleOpt ? <i class="fas fa-cogs"></i> : <i class="far fa-times-circle"></i>}</button>
+        <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-info" : "btn-danger"} btn-sm position-absolute my-5 end-0`}>{!toggleOpt ? <i className="fas fa-cogs"></i> : <i className="far fa-times-circle"></i>}</button>
         <JournalCard
           journals={journals}
           removeItem={removeItem}

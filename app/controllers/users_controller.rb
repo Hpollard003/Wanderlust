@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
     # returns all users (for use in the future when adding a friends list option)
     def index
-      render json: User.all, status: :ok
+      render json: User.all, include: :invitations, status: :ok
     end
   
     # This method is responsible for creating new users through a signup form and creating a session for them.

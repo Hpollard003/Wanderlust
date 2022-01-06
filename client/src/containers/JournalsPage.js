@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Journal from '../components/Journal'
+import Journal from '../components/Journal/Journal'
 
 
 export const Journals = () => {
