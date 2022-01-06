@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize, only: :create
+    skip_before_action :authorize, only: [:create, :show]
   
     # returns all users (for use in the future when adding a friends list option)
     def index
@@ -26,9 +26,14 @@ class UsersController < ApplicationController
       render json: user, status: :ok
     end
 
+    # Show finds a journal by their id 
+    def show 
+      user = find_user
+      render json: user, status: :ok
+    end
   
     # Show finds the current user for authenticating purposes and profile rendering.
-    def show
+    def profile
       render json: @current_user
     end
   
@@ -39,7 +44,7 @@ class UsersController < ApplicationController
     end
 
     def find_user
-      @user = User.find_by(username: params[:username])
+      @user = User.find_by(id: params[:id])
     end
   
 end

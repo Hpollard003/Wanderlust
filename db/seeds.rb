@@ -3,6 +3,11 @@ User.create(username: 'Felix003', password: 'password', password_confirmation: '
 User.create(username: 'Hpollard', password: 'password', password_confirmation: 'password')
 puts "Created 😀"
 
+names.each do |name|
+    user = User.create(name: name)
+    Invitation.create(user_id: 1, friend_id: user.id)
+end
+
 
 Journal.create(title: "EuroTrip", user_id: 1)
 Journal.create(title: "Japan", user_id: 1)

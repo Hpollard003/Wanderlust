@@ -71,7 +71,6 @@ export const Journal = () => {
         <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-info" : "btn-danger"} btn-sm position-absolute my-5 end-0`}>{!toggleOpt ? <i class="fas fa-cogs"></i> : <i class="far fa-times-circle"></i>}</button>
         <JournalCard
           journals={journals}
-          setJournals={setJournals}
           removeItem={removeItem}
           toggleOpt={toggleOpt}
         />

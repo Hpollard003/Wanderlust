@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-// import { NavLink } from 'react-router-dom'
+
+
 import {
   MDBCarousel,
   MDBCarouselInner,
@@ -7,23 +8,30 @@ import {
   MDBCarouselElement,
   MDBCarouselCaption,
 } from "mdb-react-ui-kit";
+import ArcherGifs from "../components/ArcherGifs";
 
-export const Home = () => {
+export const Home = ({currentUser}) => {
   const [toggled, setToggled] = useState(false);
-  const [toggleHowTo, setToggleHowTo] = useState(false);
+  const [stupidGifToggle, setStupidGifToggle] = useState(false);
 
   const toggler = () => {
     toggled ? setToggled(false) : setToggled(true);
   };
-  const howToToggle = () => {
-    toggleHowTo ? setToggleHowTo(false) : setToggleHowTo(true);
+  const stupidGif = () => {
+    stupidGifToggle ? setStupidGifToggle(false) : setStupidGifToggle(true);
+    window.scroll();
+
   };
   return (
     <div className="text-center m-5 ">
       {!toggled ? (<h1>
         Hello World.
         <p>This is Wanderlust.</p>
+
         <p>Create Digital Travel Journals.</p>
+      <div hidden={!stupidGifToggle}>
+        <ArcherGifs/>
+      </div>
       </h1>) : (<MDBCarousel
           showControls
           className="m-4"
@@ -87,13 +95,9 @@ export const Home = () => {
           </MDBCarouselInner>
         </MDBCarousel>)}
       
-      
-      <button className={`btn ${!toggleHowTo ? "btn-info" : "btn-danger"}`} onClick={howToToggle}>{!toggleHowTo ? "How to Start" : <><i class="fas fa-times"></i> Close </>}</button>
-      {" "}
       <button className={`btn ${!toggled ? "btn-info" : "btn-danger"}`} onClick={toggler}>{!toggled ? "Gallery" : <><i class="fas fa-times"></i> Close Gallery</>} </button>
-      <div hidden={!toggleHowTo}>
-        Hello
-      </div>
+      {" "}
+      <button className={`btn ${!stupidGifToggle ? "btn-info" : "btn-danger"}`} onClick={stupidGif} >{!stupidGifToggle ? "Click me" : <><i class="fas fa-times"></i> Close </>}</button>
     </div>
   );
 };

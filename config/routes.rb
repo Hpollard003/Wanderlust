@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :invitations
   resources :users
   resources :journals do
     resources :pages
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
 
   # Everything below is a custom route that get specific actions from specific controllers
   post "/signup", to: "users#create"
-  get "/me", to: "users#show"
+  get "/me", to: "users#profile"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
    

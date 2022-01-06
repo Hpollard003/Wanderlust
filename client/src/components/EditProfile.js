@@ -42,15 +42,15 @@ const EditProfile= () => {
     }
   
     return (
-      <div className="p-5">
-        <div className="">Edit Profile</div>
+      <div className="card shadow-lg w-25 position-absolute top-50 start-50 translate-middle bg-transparent"> 
+        <h1 className="card-header fs-3 text-center bg-green fs-5">Edit Profile</h1>
         <form
           onSubmit={handleSubmit}
-          className=""
+          className="list-group list-group-flush"
           autoComplete="on"
           >
           <input
-            className=""
+            className="form-control"
             type="text"
             id="username"
             autoComplete="on"
@@ -59,7 +59,7 @@ const EditProfile= () => {
             onChange={(e) => setUsername(e.target.value)}
             />
           <input
-            className=""
+            className="form-control"
             type="password"
             id="password"
             autoComplete="password"
@@ -68,7 +68,7 @@ const EditProfile= () => {
             onChange={(e) => setPassword(e.target.value)}
             />
           <input
-            className=""
+            className="form-control"
             type="password"
             id="password_confirmation"
             autoComplete="password"
@@ -76,11 +76,11 @@ const EditProfile= () => {
             value={passwordConfirmation}
             onChange={(e) => setPasswordConfirmation(e.target.value)}
             />
-          <Uploader/>
-            {errors ? errorRender() : null}
-            <button className="" type="submit">
+            <button className="btn btn-green" type="submit">
               Save
             </button>
+          {/* <Uploader/> */}
+            {errors ? errorRender() : null}
         </form>
       </div>
     );

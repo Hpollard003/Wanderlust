@@ -4,13 +4,13 @@ class JournalsController < ApplicationController
 
     # Index provides a list of all journals based on the user
     def index
-        render json: @current_user.journals, include: :pages, status: :ok
+        render json: @current_user.journals, include: :pages
     end
 
     # Show finds a journal by their id 
     def show 
         journal = find_journal
-        render json: journal, include: :pages, status: :ok
+        render json: journal, include: :pages
     end
 
     # Create, creates a new journal based on the parameters passed and adds it to the journals table where it recieves an id
