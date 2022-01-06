@@ -25,21 +25,21 @@ export const Friends = () => {
       });
   };
 
-  const addFriendsHandler = (friends) => {
-    fetch("/invitations", {
-      method: "PATCH",
-      body: JSON.stringify(friends),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setFriends((prevFriends) => [
-          ...prevFriends,
-          { id: data.id, ...friends },
-        ]);
-        console.log(friends);
-      });
-  };
+//   const addFriendsHandler = (friends) => {
+//     fetch("/invitations", {
+//       method: "PATCH",
+//       body: JSON.stringify(friends),
+//       headers: { "Content-Type": "application/json" },
+//     })
+//       .then((response) => response.json())
+//       .then((data) => {
+//         setFriends((prevFriends) => [
+//           ...prevFriends,
+//           { id: data.id, ...friends },
+//         ]);
+//         console.log(friends);
+//       });
+//   };
 
   const filter = (id) => {
     const newFriends = friends.filter((user) => user.id !== parseInt(id));
