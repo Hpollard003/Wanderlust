@@ -35,7 +35,7 @@ function SignUp({ setCurrentUser }) {
 
   const errorRender = () => {
     return errors.map(err => {
-      return <div className="" >{err}</div>
+      return <div className="alert alert-danger" role="alert" >{err}</div>
     })
   }
 
@@ -47,6 +47,7 @@ function SignUp({ setCurrentUser }) {
         className="list-group list-group-flush"
         >
         <input
+        
            className="list-group-item"
           type="text"
           id="username"
@@ -55,6 +56,7 @@ function SignUp({ setCurrentUser }) {
           onChange={(e) => setUsername(e.target.value)}
           />
         <input
+        
            className="list-group-item"
           type="password"
           id="password"
@@ -63,6 +65,7 @@ function SignUp({ setCurrentUser }) {
           onChange={(e) => setPassword(e.target.value)}
           />
         <input
+        
            className="list-group-item"
           type="password"
           id="password_confirmation"

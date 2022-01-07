@@ -26,17 +26,19 @@ function Login({ setCurrentUser }) {
       }
     })
   }
+
   
   return (
     <div className="card shadow-lg w-25 position-absolute top-50 start-50 translate-middle bg-transparent">
       <h1 className="card-header fs-3 text-center bg-green">Login</h1>
-      {error ? (<div className="" role="alert">{error}</div>) : (<div hidden={true} >{error}</div>)}
+      {error ? (<div className="alert alert-danger" role="alert">{error}</div>) : null}
       <form
         onSubmit={handleSubmit}
         className="list-group list-group-flush"
         autoComplete="on"
         >
         <input
+        
           className="list-group-item"
           type="text"
           id="username"
@@ -45,6 +47,7 @@ function Login({ setCurrentUser }) {
           onChange={(e) => setUsername(e.target.value)}
           />
         <input
+        
           className="list-group-item"
           type="password"
           id="password"

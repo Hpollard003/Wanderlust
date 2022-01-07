@@ -3,28 +3,28 @@ import { useParams } from "react-router-dom";
 // import Uploader from "./FilePond";
 
 const NewPage = (props) => {
-    const [title, setTitle] = useState("");
-    const [body, setBody] = useState("");
-    // const [image, setImage] = useState("");
-    const { id } = useParams()
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      props.addPageHandler({
-        title,
-        body,
-        // image,
-        journal_id: id,
-      });
-      setTitle('')
-      setBody('')
-      // setImage('')
-    };
-    return (
-      <>
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+  // const [image, setImage] = useState("");
+  const { id } = useParams();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.addPageHandler({
+      title,
+      body,
+      // image,
+      journal_id: id,
+    });
+    setTitle("");
+    setBody("");
+    // setImage('')
+  };
+  return (
+    <>
       <h1 className="p-5 text-gradient">New Page</h1>
-        <div className="card w-50 start-0 bg-transparent">
-      <form onSubmit={handleSubmit} className="list-group list-group-flush">
+      <div className="card w-50 start-0 bg-transparent">
+        <form onSubmit={handleSubmit} className="list-group list-group-flush">
           <input
             type="text"
             className="list-group-item w-50"
@@ -37,9 +37,9 @@ const NewPage = (props) => {
               setTitle(e.target.value);
             }}
           />
-          <input
-            type="text"
-            className="list-group-item text-break"
+          <textarea
+            class="form-control"
+            style={{ height: "100px" }}
             name="body"
             id="body"
             placeholder="Text"
@@ -49,7 +49,7 @@ const NewPage = (props) => {
               setBody(e.target.value);
             }}
           />
-            {/* <input
+          {/* <input
               type="text"
               className="list-group-item"
               name="img_url"
@@ -60,13 +60,14 @@ const NewPage = (props) => {
                 setImage(e.target.value);
               }}
             /> */}
-            {/* <Uploader/> */}
+          {/* <Uploader/> */}
           <button className="btn btn-green" type="submit">
             Submit
           </button>
-      </form>
+        </form>
       </div>
-      </>
-    )}
+    </>
+  );
+};
 
-export default NewPage
+export default NewPage;
