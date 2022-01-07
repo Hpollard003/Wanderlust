@@ -47,7 +47,7 @@ export const JournalCard = ({journals, toggleOpt, removeItem}) => {
             </a></MDBCardTitle>
             </div>
                 <MDBCardTitle id={journal.id} className="journal-text-gradient">
-                  <h3>{journal.title}</h3>
+                  <header>{journal.title}</header>
                 </MDBCardTitle>
               </MDBCardOverlay>
                 <MDBCardFooter className="text-light footer-bg-gradient"></MDBCardFooter>

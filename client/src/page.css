@@ -8,18 +8,18 @@ body {
   background-position: 0px -70px; 
   background-size: cover;
   resize: both;
-  color: white;
+  color: rgb(0, 6, 92);
   font-family: "DM Mono", monospace;
 }
 .errorBody {
   padding: 0;
   margin: 0;
-  background-image: url("./assets/404.gif");
+  background-image: url("./assets/err.gif");
   background-attachment: fixed;
-  background-position: 0px -370px; 
+  /* background-position: 0px -370px;  */
   background-size: cover;
   resize: both;
-  color: white;
+  color: rgb(0, 0, 0);
   font-family: "DM Mono", monospace;
 }
 /* width */
@@ -188,4 +188,8 @@ a {
   margin-bottom: 20px;
 }
 
-
+.glitch {
+  position: relative;
+  margin: 0 auto;
+  background-color: #4242e6;
+}

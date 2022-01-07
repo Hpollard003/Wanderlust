@@ -24,7 +24,7 @@ export const Navbar = ({ setCurrentUser, currentUser }) => {
       <div className="bg-imagetext-center shadow-3-strong text-white">
         <MDBNavbar expand="lg" className="">
           <MDBContainer fluid>
-            <MDBNavbarBrand className="text-gradient" onClick={() => nav("/")}>
+            <MDBNavbarBrand className="text-gradient" onClick={() => nav("/home")}>
               {" "}
               <img
                 src={WanderlustGif}

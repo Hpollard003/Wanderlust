@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 export const PageEditor = () => {
   const [pages, setPages] = useState([]);
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
+  const [title, setTitle] = useState(`${pages.title}`);
+  const [body, setBody] = useState(`${pages.body}`);
   // const [image, setImage] = useState("");
-  const { id } = useParams();
-  const { pageId } = useParams();
+  const { id , pageId } = useParams();
   const navigate = useNavigate()
 
+
   useEffect(() => {
-    fetch(`/journals/${id}`)
+    fetch(`/journals/${id}/pages/${pageId}`)
       .then((resp) => resp.json())
       .then((data) => {
-        setPages(data.pages);
+        setPages(data);
         console.log(pages);
       });
   }, []);

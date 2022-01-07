@@ -20,9 +20,9 @@ export const Home = ({ currentUser }) => {
     window.scroll();
   };
   return (
-    <div className="text-center m-5 ">
+    <div className="text-center m-5">
       {!toggled ? (
-        <h1>
+        <h1 className="text-gradient">
           Hello World.
           <p>This is Wanderlust.</p>
           <p>Create Digital Travel Journals.</p>
@@ -36,7 +36,7 @@ export const Home = ({ currentUser }) => {
           className="m-4"
           fade
           interval={9000}
-          style={{ maxHeight: "50rem" }}
+          style={{ maxHeight: "50rem" , maxWidth: "100rem" }}
         >
           <MDBCarouselInner>
             <MDBCarouselItem className="active">

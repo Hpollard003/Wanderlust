@@ -16,7 +16,7 @@ const Auth = ({ setCurrentUser, currentUser }) => {
     <div className="">
       <Router>
         <Navbar setCurrentUser={setCurrentUser} currentUser={currentUser} />
-        <Routes className="main">
+        <Routes>
           <Route path="/" element={<Home currentUser={currentUser} />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="profile/:username" element={<Profile />} />
@@ -27,7 +27,7 @@ const Auth = ({ setCurrentUser, currentUser }) => {
           <Route path="journals/edit/:titleText/:id" element={<Editor />} />
           <Route path="journals/edit/:id/pages/:pageId" element={<PageEditor />} />
           <Route path="profile/edit/:user_id/:userName" element={<EditProfile />} />
-          <Route path="*" element={<Error404 />} />
+          <Route path="*" element={<Home />} />
         </Routes>
       </Router>
     </div>

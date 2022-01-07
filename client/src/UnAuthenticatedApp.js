@@ -4,7 +4,6 @@ import Login from "./components/Auth/Login";
 import SignUp from "./components/Auth/SignUp";
 import {Navbar} from "./components/Navbar"
 import AboutPage from "./containers/AboutPage";
-import Error404 from "./containers/Error404";
 
 
 const UnAuth = ({setCurrentUser}) => {
@@ -17,7 +16,7 @@ const UnAuth = ({setCurrentUser}) => {
           <Route path="signup" element={<SignUp setCurrentUser={setCurrentUser}/>} />
           <Route path="login" element={<Login setCurrentUser={setCurrentUser}/>} />
           <Route path="about" element={<AboutPage/>} />
-          <Route path="*" element={<Error404/>} />
+          <Route path="*" element={<Home/>} />
           </Routes>
       </Router>
     </div>
