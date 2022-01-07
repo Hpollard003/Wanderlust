@@ -17,7 +17,7 @@ const FriendList = ({ friends }) => {
         setMyFriendRequests(data.pending_friends);
         console.log(myFriendRequests);
       });
-  }, []);
+  }, [setMyFriends, setMyFriendRequests]);
 
 
 
@@ -38,9 +38,10 @@ const FriendList = ({ friends }) => {
           setMyFriends={setMyFriends}
           myFriends={myFriends}
         />
+          <h2 className="friends-text-gradient border text-center rounded-circle p-1 mx-5">{myFriends.length}</h2>
         {myFriends.map((friend, ind) => (
-          <div className="m-4 container" key={ind}>
-            <section className="row">{friend.username}</section>
+          <div className="m-4" key={ind}>
+            <section className="border border-top-0 rounded-pill border-end-0 border-4 border-success text-center">{friend.username}</section>
           </div>
         ))}
       </section>

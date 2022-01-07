@@ -11,7 +11,6 @@ const FriendRequests = ({myFriendRequests, setMyFriendRequests, setMyFriends, my
         fetch(`/users/${id}/invitations/${event.target.id}`, {
           method: "DELETE",
         })
-        //   .then((resp) => resp.json())
           .then(() => {
             filter(event.target.id);
           });
@@ -22,19 +21,15 @@ const FriendRequests = ({myFriendRequests, setMyFriendRequests, setMyFriends, my
         // console.log(newFriends)
       };
 
-      const addFriendsHandler = (friends) => {
-        fetch("/invitations", {
+      const addFriendsHandler = (event) => {
+        fetch(`/users/${id}/invitations/${event.target.id}`, {
           method: "PATCH",
-          body: JSON.stringify(friends), 
+          body: JSON.stringify({invitation_id : event.target.id}), 
           headers: { "Content-Type": "application/json" },
         })
-          .then((response) => response.json())
-          .then((data) => {
-            setMyFriends((prevFriends) => [
-              ...prevFriends,
-              { id: data.id, ...friends },
-            ]);
-            console.log(friends);
+        //   .then((response) => response.json())
+          .then(() => {
+            filter(event.target.id);
           });
       };
 
@@ -69,7 +64,7 @@ const FriendRequests = ({myFriendRequests, setMyFriendRequests, setMyFriends, my
                           {friendRequest.username}
                         </p>
                         <section className="mx-5">
-                          <button className="btn btn-info btn-sm">Accept</button>{" "}
+                          <button className="btn btn-info btn-sm"  id={friendRequest.invite_id}  onClick={addFriendsHandler}>Accept</button>{" "}
                           <button className="btn btn-danger btn-sm" id={friendRequest.invite_id} onClick={removeFriend}>Reject</button>
                         </section>
                       </li>
