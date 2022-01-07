@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  attr_accessor :invite_id
+
     # Has secure password adds a method to set and authenicate against a bcrypt(Blowfish Crypt) password it requires a password_digest
     has_secure_password
 
@@ -27,6 +29,7 @@ class User < ApplicationRecord
     def send_invitation(user)
       invitations.create(friend_id: user.id)
     end
+
 
 
 

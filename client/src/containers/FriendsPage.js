@@ -3,9 +3,9 @@ import Friends from '../components/Friends'
 
 const FriendsPage = () => {
     return (
-        <>
+        <div>
         <Friends/>
-        </>
+        </div>
     )
 }
 

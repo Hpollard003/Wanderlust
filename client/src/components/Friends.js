@@ -52,7 +52,6 @@ export const Friends = () => {
 
   return (
     <div className="text-light">
-      <h1 className="text-center text-gradient">Friends</h1> 
       <section className="container px-5">
         <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-info" : "btn-danger"} btn-sm position-absolute my-5 end-0`}>{!toggleOpt ? <i className="fas fa-cogs"></i> : <i className="far fa-times-circle"></i>}</button>
         <FriendList

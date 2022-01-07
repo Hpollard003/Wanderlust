@@ -1,35 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Earfy from "../assets/earthy.gif";
 
 const FriendList = ({ friends, removeFriend, toggleOpt }) => {
-  // const [myFriends, setMyFriends] = useState([]);
-  // const [travelBuddy , setTravelBuddy] = useState(null)
-  // const { id } = useParams()   
-
-  // useEffect(() => {
-  //   fetch(`/users/${id}`) 
-  //     .then((resp) => resp.json())
-  //     .then((data) => {
-  //       setMyFriends(data.invitations.map((invitation) => invitation.friend_id))  
-  //       filter()
-  //       console.log(myFriends)
-  //     }); 
-  // }, []); 
-
-  // const filter = () => { 
-  //   const newFriends = friends.filter((user) => user.id === myFriends.map(pal => pal)); 
-  //   setMyFriends(newFriends);    
-  //   console.log(newFriends)
-
-  // };
-
+  const [myFriends, setMyFriends] = useState([]);
+  
+  
 
   return (
     <div>
-      <h1>My Friends</h1>
-      {/* {myFriends.map((friend, ind) => (
-        <h5 key={ind}>{friend.username}</h5> 
-      ))} */}
+      <section className="d-inline-flex">
+        {" "}
+        <img
+          src={Earfy}
+          alt="Earfy is missing"
+          height="250"
+          width="300"
+          className="rounded rounded-pill"
+        />
+        <section>
+          <h1 className="friends-text-gradient">My Friends</h1>
+          {friends.map((friend, ind) => (
+            <h5 key={ind}>{friend.username}</h5>
+          ))}
+        </section>
+      </section>
     </div>
   );
 };

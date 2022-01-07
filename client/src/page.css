@@ -11,6 +11,17 @@ body {
   color: white;
   font-family: "DM Mono", monospace;
 }
+.errorBody {
+  padding: 0;
+  margin: 0;
+  background-image: url("./assets/404.gif");
+  background-attachment: fixed;
+  background-position: 0px -370px; 
+  background-size: cover;
+  resize: both;
+  color: white;
+  font-family: "DM Mono", monospace;
+}
 /* width */
 body::-webkit-scrollbar {
     width: 10px;
@@ -126,6 +137,14 @@ a {
 
 .journal-text-gradient {
   background: linear-gradient(140deg, #f9feff , #00ffd5, #000000);
+  text-shadow: #f3f3f3;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.friends-text-gradient {
+  background: linear-gradient(140deg, #ffffff , #00ffd5, #ffffff);
   text-shadow: #f3f3f3;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
