@@ -28,8 +28,13 @@ const FriendRequests = ({myFriendRequests, setMyFriendRequests, setMyFriends, my
           headers: { "Content-Type": "application/json" },
         })
         //   .then((response) => response.json())
-          .then(() => {
+          .then((data) => {
             filter(event.target.id);
+            setMyFriends((prevFriends) => [
+              ...prevFriends,
+              { id: data.id, ...myFriendRequests },
+            ]);
+            console.log(myFriends);
           });
       };
 
