@@ -43,6 +43,7 @@ function Login({ setCurrentUser }) {
           type="text"
           id="username"
           placeholder="Username"
+          maxLength="30"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           />
@@ -53,6 +54,7 @@ function Login({ setCurrentUser }) {
           id="password"
           autoComplete="password"
           placeholder="Password"
+          maxLength="50"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           />

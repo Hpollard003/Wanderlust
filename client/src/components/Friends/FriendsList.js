@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Earfy from "../../assets/earthy.gif";
 import {
   MDBCard,
-  MDBCardTitle,
-  MDBCardFooter,
+  MDBBadge,
   MDBCardOverlay,
   MDBCardImage,
 } from "mdb-react-ui-kit";
@@ -60,7 +58,7 @@ const FriendList = ({ friends }) => {
 
   return (
     <>
-      <div className="d-inline-flex">
+      <div className="d-inline-flex position-relative">
         <h1 className="friends-text-gradient position-sticky">Friends</h1>
         <FriendRequests
           myFriendRequests={myFriendRequests}
@@ -72,9 +70,9 @@ const FriendList = ({ friends }) => {
         />
       </div>
 
-      <div className="row">
+      <div className="row position-relative">
         {myFriends.map((friend, ind) => (
-          <div className="col-4 p-3" key={ind} id={friend.id}>
+          <div className="col-4 p-3 position-relative" key={ind} id={friend.id}>
             <MDBCard
               background=""
               className="text-light bg-transparent rounded-circle"
@@ -84,6 +82,13 @@ const FriendList = ({ friends }) => {
                 window.scrollTo(0, 0);
               }}
             >
+              <div className="position-absolute top-0 start-100 translate-middle text-center ">Journals 
+              <MDBBadge
+                className="badge rounded-pill bg-info"
+                notification
+              >
+                {friend.journals.length}
+              </MDBBadge></div>
               <MDBCardImage
                 overlay
                 height="290px"

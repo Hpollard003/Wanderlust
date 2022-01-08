@@ -1,13 +1,17 @@
 import React from "react";
-import PaperPlane from "../assets/paperPlane.gif";
+import Earfy from "../assets/earthy.gif";
 
 const AboutPage = () => {
   return (
     <div className="text-light page-list">
       About Page{" "}
-      <span>
-        <img src={PaperPlane} alt="" height="100" loading="lazy" />
-      </span>
+              <img
+                src={Earfy}
+                height="40"
+                alt=""
+                className="rounded rounded-circle "
+                loading="lazy"
+              />
       <p className="card navbar-bg-gradient p-3">The story begins twenty years after Odysseus left to fight in the Trojan War, and ten years after he began his journey home to Ithaca. We enter the story in medias res – in the middle of things: Odysseus is trapped on an island with the lovesick goddess Calypso, while his wife and son suffer the transgressions of the suitors, noble young men who vie for queen Penelope's hand. The loyal queen has rebuffed their advances for many years, because she holds out hope that Odysseus may one day return. In the meantime the suitors have run free in the household, holding noisy parties and draining the resources of the estate.
 The goddess Athena decides to intervene on Odysseus's behalf. She convinces Zeus to send the messenger god Hermes to disentangle Odysseus from Calypso's grasp, and she herself flies to Ithaca to give courage and guidance to the helpless young prince Telemachus. She inspires Telemachus to set sail to Pylos and Sparta in search of news about Odysseus; his newfound confidence and familial feeling alarms the suitors, who plot to murder him on his way home. King Nestor of Pylos can't give Telemachus any information about Odysseus, but King Menelaus of Sparta reports that he learned from the sea god Proteus that Odysseus is alive on the island Ogygia.
 Meanwhile, Hermes flies to Ogygia and tells Calypso to let Odysseus go. Odysseus departs, and sails for seventeen days until he sees the Phaeacian shore; after some difficulties, he reaches land and falls asleep. The next morning, the Phaeacian princess Nausicaa finds him on the beach in a pitiable state. She gives him food and clothes and offers to introduce him to her parents, the king and queen – but she asks that he enter the city at a distance from her, to ward off uncharitable gossip.

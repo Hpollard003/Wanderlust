@@ -26,7 +26,7 @@ export const Friends = () => {
       <section className="container p-5 mx-4">
         <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-green" : "btn-danger"} btn-sm position-absolute mx-5 end-0 `}>{!toggleOpt ? <i className="fas fa-search"></i> : <i className="far fa-times-circle"></i>}</button>
       <div hidden={!toggleOpt} className=" m-5 w-50">
-        <Search/>
+        <Search friends={friends}/>
       </div>
         <FriendList
           friends={friends}
