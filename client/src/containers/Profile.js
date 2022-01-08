@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 
 
+
+
 export const Profile = (props) => {
   const [user, setUser] = useState([]);
-  const [imageUrl, setImageUrl] = useState("")
   const nav = useNavigate()
 
   useEffect(() => {
@@ -15,7 +16,6 @@ export const Profile = (props) => {
       if (res.ok) {
         res.json().then((user) => {
           setUser(user);
-          setImageUrl(user.image.url)
         });
       }
     });
@@ -26,7 +26,7 @@ export const Profile = (props) => {
     return (
       <div >
         <img
-          src={imageUrl}
+          src={user.image ? user.image : "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F-MPQv3-0XWfk%2FVSk4Gb4MgSI%2FAAAAAAAAAWI%2FJhy6FdCIPKM%2Fs1600%2FSileut%252BLuffy.jpg&f=1&nofb=1"}
           className="rounded rounded-circle border border-info border-5"
           style={{height: "200px", width: "200px"}}
           alt={`${user.username} pic`}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-// import Uploader from "../components/FilePond";
+import UploadImage from "../UploadImage";
 
 const EditProfile = () => {
   const navigate = useNavigate();
@@ -8,22 +8,21 @@ const EditProfile = () => {
   const [username, setUsername] = useState(`${userName}`);
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [image, setImage] = useState(null);
   const [errors, setErrors] = useState("");
+  const [toggled, setToggled] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("username" , username);
-    formData.append("password" , password);
-    formData.append("password_confirmation" , passwordConfirmation);
-    formData.append( "image" ,image)
+    formData.append("username", username);
+    formData.append("password", password);
+    formData.append("password_confirmation", passwordConfirmation);
     fetch(`/users/${user_id}`, {
       method: "PATCH",
-      body: formData
+      body: formData,
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => {
+        r.json().then(() => {
           navigate(`/profile/${username}`);
         });
       } else {
@@ -35,21 +34,19 @@ const EditProfile = () => {
   const errorRender = () => {
     return errors.map((err) => {
       return (
-        <div className="alert alert-warning w-50 " role="alert">
+        <div className="bg-danger rounded p-1 mx-2 my-1 opacity-75" role="alert">
           {err}
         </div>
       );
     });
   };
 
-  const fileHandler = (e) => {
-    setImage(e.target.files[0])
-    console.log(image)
-  }
-
+  const toggler = () => {
+    toggled ? setToggled(false) : setToggled(true);
+  };
 
   return (
-    <div className="card shadow-lg w-25 position-absolute top-50 start-50 translate-middle bg-transparent">
+    <div className="card position-absolute top-50 start-50 translate-middle bg-transparent border-0">
       <h1 className="card-header fs-3 text-center bg-green fs-5">
         Edit Profile
       </h1>
@@ -85,19 +82,21 @@ const EditProfile = () => {
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
         />
-        <input
-          className="form-control"
-          type="file"
-          accept="image/*"
-          multiple={false}
-          onChange={fileHandler}
-        />
         <button className="btn btn-green" type="submit">
           Save
         </button>
-        {/* <Uploader/> */}
         {errors ? errorRender() : null}
       </form>
+      <div className="my-3 text-center">
+      <button onClick={toggler} className={`btn ${!toggled ? "btn-info" : "btn-danger w-25"} btn-sm`}>{!toggled ? "Edit Pfp" : "Close"}</button>
+      <div hidden={!toggled}>
+      <UploadImage
+        user_id={user_id}
+        password={password}
+        passwordConfirmation={passwordConfirmation}
+      />
+      </div>
+      </div>
     </div>
   );
 };

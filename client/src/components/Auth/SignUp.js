@@ -6,7 +6,6 @@ function SignUp({ setCurrentUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [image, setImage] = useState(null);
   const [errors, setErrors] = useState("");
 
   function handleSubmit(e) {
@@ -15,7 +14,6 @@ function SignUp({ setCurrentUser }) {
     formData.append("username" , username);
     formData.append("password" , password);
     formData.append("password_confirmation" , passwordConfirmation);
-    formData.append( "image" ,image)
     fetch("/signup", {
       method: "POST",
       body: formData
@@ -36,13 +34,9 @@ function SignUp({ setCurrentUser }) {
     })
   }
 
-  const fileHandler = (e) => {
-    setImage(e.target.files[0])
-    console.log(image)
-  }
 
   return (
-    <div className="card shadow-lg w-25 position-absolute top-50 start-50 translate-middle bg-transparent">
+    <div className="card shadow-lg position-absolute top-50 start-50 translate-middle bg-transparent">
       <div className="card-header fs-3 text-center bg-green">Signup</div>
       <form
         onSubmit={handleSubmit}
@@ -67,8 +61,7 @@ function SignUp({ setCurrentUser }) {
           onChange={(e) => setPassword(e.target.value)}
           />
         <input
-        
-           className="list-group-item"
+          className="list-group-item"
           type="password"
           id="password_confirmation"
           autoComplete="password"
@@ -76,13 +69,6 @@ function SignUp({ setCurrentUser }) {
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           />
-        <input
-          className="form-control"
-          type="file"
-          accept="image/*"
-          multiple={false}
-          onChange={fileHandler}
-        />
           {errors ? errorRender() : null}
           <button className="btn btn-info w-100" type="submit">
             Sign up
