@@ -25,6 +25,7 @@ const NewJournalForm = ({addJournalHandler , toggler}) => {
           id="title"
           placeholder="title"
           value={title}
+          maxLength="30"
           onChange={(e) => {
             setTitle(e.target.value);
           }}
