@@ -14,7 +14,7 @@ export const JournalCard = ({journals, toggleOpt, removeItem}) => {
 
   const renderjournalList = () => {
     return (
-      <div className="row shadow">
+      <div className="row">
         {journals.map((journal, ind) => (
           <div className="col-4 p-3" key={ind} id={journal.id}>
         
@@ -47,7 +47,7 @@ export const JournalCard = ({journals, toggleOpt, removeItem}) => {
             </a></MDBCardTitle>
             </div>
                 <MDBCardTitle id={journal.id} className="journal-text-gradient">
-                  <header>{journal.title}</header>
+                  <header id={journal.id}>{journal.title}</header>
                 </MDBCardTitle>
               </MDBCardOverlay>
                 <MDBCardFooter className="text-light footer-bg-gradient"></MDBCardFooter>

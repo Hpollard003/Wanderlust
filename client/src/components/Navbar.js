@@ -24,7 +24,10 @@ export const Navbar = ({ setCurrentUser, currentUser }) => {
       <div className="bg-imagetext-center shadow-3-strong text-white">
         <MDBNavbar expand="lg" className="">
           <MDBContainer fluid>
-            <MDBNavbarBrand className="text-gradient" onClick={() => nav("/home")}>
+            <MDBNavbarBrand
+              className="text-gradient"
+              onClick={() => nav("/home")}
+            >
               {" "}
               <img
                 src={WanderlustGif}
@@ -53,7 +56,6 @@ export const Navbar = ({ setCurrentUser, currentUser }) => {
                 <MDBIcon className="text-light" icon="angle-double-up" fas />
               )}
             </MDBNavbarToggler>
-
             <MDBCollapse navbar show={showBasic}>
               <MDBNavbarNav className="mr-auto mb-2 mb-lg-0 navbar-gradient">
                 <MDBNavbarItem>
@@ -79,7 +81,11 @@ export const Navbar = ({ setCurrentUser, currentUser }) => {
                     </MDBNavbarItem>
                     <MDBNavbarItem>
                       <MDBNavbarLink
-                        onClick={() => nav(`/${currentUser.username}/${currentUser.id}/friends/`)}
+                        onClick={() =>
+                          nav(
+                            `/${currentUser.username}/${currentUser.id}/friends/`
+                          )
+                        }
                       >
                         Friends
                       </MDBNavbarLink>
@@ -87,14 +93,23 @@ export const Navbar = ({ setCurrentUser, currentUser }) => {
                   </>
                 ) : null}
               </MDBNavbarNav>
+              <form class="d-flex">
+                {/* <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                /> */}
+                {/* <button class="btn btn-outline-success" type="submit">
+                  Search
+                </button> */}
+              </form>
               {currentUser ? (
-               
-                  <div className="nav-link ">
-                    <Logout setCurrentUser={setCurrentUser} />
-                  </div>
-                
+                <div className="nav-link ">
+                  <Logout setCurrentUser={setCurrentUser} />
+                </div>
               ) : (
-                <div className="row">
+                <div className="row m-3">
                   <button
                     className="shadow-lg btn btn-outline-info btn-sm"
                     onClick={() => nav("/login")}

@@ -9,13 +9,6 @@ const PageCards = ({ pages, toggleOpt, removeItem }) => {
           <article id={page.id} className="page" key={ind}>
             <h2 className="text-gradient">{page.title}</h2>
             <p className="page-header text-break text-gradient">{page.body}</p>
-            {/* <img
-              height="auto"
-              width="100px"
-              className="px-2"
-              src={page.image}
-              alt={page.title}
-            /> */}
             <div hidden={!toggleOpt} className="positition-relative">
               <button
                 className="btn btn-sm btn-outline-danger rounded-circle"
@@ -31,6 +24,7 @@ const PageCards = ({ pages, toggleOpt, removeItem }) => {
                 <i className="far fa-edit"></i>
               </a>
             </div>
+              <h4 className="text-light">{ind + 1}</h4>
           </article>
      
       ))}

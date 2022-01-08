@@ -36,10 +36,18 @@ const FriendList = ({ friends }) => {
         filter(event.target.id);
         setMyFriends((prevFriends) => [
           ...prevFriends,
-          { id: data.id, ...myFriends },
+          { id: data.id, ...friends },
         ]);
         console.log(myFriends);
       });
+  };
+
+  const unfriend = (event) => {
+    fetch(`/users/${id}/invitations/${event.target.id}`, {
+      method: "DELETE",
+    }).then(() => {
+      // filter(event.target.id);
+    });
   };
 
   const filter = (id) => {
@@ -64,7 +72,7 @@ const FriendList = ({ friends }) => {
         />
       </div>
 
-      <div className="row shadow">
+      <div className="row">
         {myFriends.map((friend, ind) => (
           <div className="col-4 p-3" key={ind} id={friend.id}>
             <MDBCard
@@ -84,6 +92,7 @@ const FriendList = ({ friends }) => {
               </MDBCardOverlay>
               <MDBCardFooter className="text-light footer-bg-gradient"></MDBCardFooter>
             </MDBCard>
+              <button id={friend.invite_id} className="btn btn-danger btn-sm p-1"onClick={unfriend}>UnFriend</button>
           </div>
         ))}
       </div>
