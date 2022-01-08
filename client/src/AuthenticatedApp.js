@@ -9,9 +9,9 @@ import Editor from "./components/Editors/Editor";
 import PageEditor from "./components/Editors/PageEditor";
 import EditProfile from "./components/Editors/EditProfile";
 import FriendsPage from "./containers/FriendsPage";
-import Error404 from "./containers/Error404";
 import FRIEND_PAGES from "./components/Friends/Friend-Pages";
 import FRIEND_JOURNALS from "./components/Friends/Friend-Journals";
+// import Error404 from "./containers/Error404";
 
 const Auth = ({ setCurrentUser, currentUser }) => {
   return (
@@ -26,7 +26,7 @@ const Auth = ({ setCurrentUser, currentUser }) => {
             <Route path=":id" element={<PagesPage />} />
           </Route>
           <Route path="/:username/:id/friends" element={<FriendsPage/>}>
-            <Route path=":friend_id/journals/" element={<FRIEND_JOURNALS/>}>
+            <Route path=":friend_id/journals" element={<FRIEND_JOURNALS/>}>
               <Route path=":journal_id" element={<FRIEND_PAGES/>}/>
             </Route>
           </Route>

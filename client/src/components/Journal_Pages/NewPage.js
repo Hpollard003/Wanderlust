@@ -39,7 +39,7 @@ const NewPage = (props) => {
             }}
           />
           <textarea
-            class="form-control"
+            className="form-control"
             style={{ height: "100px" }}
             name="body"
             id="body"
@@ -50,18 +50,6 @@ const NewPage = (props) => {
               setBody(e.target.value);
             }}
           />
-          {/* <input
-              type="text"
-              className="list-group-item"
-              name="img_url"
-              id="name"
-              placeholder="Image Url"
-              value={image}
-              onChange={(e) => {
-                setImage(e.target.value);
-              }}
-            /> */}
-          {/* <Uploader/> */}
           <button className="btn btn-green" type="submit">
             Submit
           </button>

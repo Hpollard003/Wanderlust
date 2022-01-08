@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Search = () => {
+    const [searchValue, setSearchValue] = useState("")
+
+
     return (
-        <form class="d-flex position-absolute start-50 translate-middle">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-green" type="submit"><i class="fas fa-search"></i></button>
+        <form className="d-flex position-absolute start-50 translate-middle">
+        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button className="btn btn-green" type="submit"><i className="fas fa-search"></i></button>
       </form>
     )
 }

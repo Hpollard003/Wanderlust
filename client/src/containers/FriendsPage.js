@@ -1,14 +1,14 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Friends from '../components/Friends/Friends'
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Friends from "../components/Friends/Friends";
 
 const FriendsPage = () => {
-    return (
-        <div>
-        <Friends/>
-            <Outlet/>
-        </div>
-    )
-}
+  return (
+    <div>
+      <Outlet />
+      <Friends />
+    </div>
+  );
+};
 
-export default FriendsPage
+export default FriendsPage;

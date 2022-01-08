@@ -102,7 +102,7 @@ export const Home = ({ currentUser }) => {
           "Gallery"
         ) : (
           <>
-            <i class="fas fa-times"></i> Close Gallery
+            <i className="fas fa-times"></i> Close Gallery
           </>
         )}{" "}
       </button>{" "}
@@ -114,7 +114,7 @@ export const Home = ({ currentUser }) => {
           "Click me"
         ) : (
           <>
-            <i class="fas fa-times"></i> Close{" "}
+            <i className="fas fa-times"></i> Close{" "}
           </>
         )}
       </button>

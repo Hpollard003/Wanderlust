@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Earfy from "../../assets/earthy.gif";
 import {
   MDBCard,
@@ -14,6 +14,7 @@ import FriendRequests from "./FriendRequests";
 const FriendList = ({ friends }) => {
   const [myFriends, setMyFriends] = useState([]);
   const [myFriendRequests, setMyFriendRequests] = useState([]);
+  const nav = useNavigate();
   const { id } = useParams();
 
   useEffect(() => {
@@ -31,15 +32,14 @@ const FriendList = ({ friends }) => {
       method: "PATCH",
       body: JSON.stringify({ invitation_id: event.target.id }),
       headers: { "Content-Type": "application/json" },
-    })
-      .then((data) => {
-        filter(event.target.id);
-        setMyFriends((prevFriends) => [
-          ...prevFriends,
-          { id: data.id, ...friends },
-        ]);
-        console.log(myFriends);
-      });
+    }).then((data) => {
+      filter(event.target.id);
+      setMyFriends((prevFriends) => [
+        ...prevFriends,
+        { id: data.id, ...friends },
+      ]);
+      console.log(myFriends);
+    });
   };
 
   const unfriend = (event) => {
@@ -61,7 +61,7 @@ const FriendList = ({ friends }) => {
   return (
     <>
       <div className="d-inline-flex">
-        <h1 className="friends-text-gradient">Friends</h1>
+        <h1 className="friends-text-gradient position-sticky">Friends</h1>
         <FriendRequests
           myFriendRequests={myFriendRequests}
           setMyFriendRequests={setMyFriendRequests}
@@ -77,22 +77,34 @@ const FriendList = ({ friends }) => {
           <div className="col-4 p-3" key={ind} id={friend.id}>
             <MDBCard
               background=""
-              className="text-light bg-transparent"
+              className="text-light bg-transparent rounded-circle"
               id={friend.id}
               onClick={(e) => {
-                // nav(`${e.target.id}`);
+                nav(`${e.target.id}/journals`);
                 window.scrollTo(0, 0);
               }}
             >
-              <MDBCardImage overlay src={Earfy} alt="..." id={friend.id} />
-              <MDBCardOverlay id={friend.id}>
-                <MDBCardTitle id={friend.id} className="friend-text-gradient">
-                  <header>{friend.username}</header>
-                </MDBCardTitle>
+              <MDBCardImage
+                overlay
+                height="290px"
+                src={friend.image}
+                alt="..."
+                id={friend.id}
+                className="rounded-circle border border-5 border-top-0 border-end-0 shadow-lg bg-dark"
+              />
+              <MDBCardOverlay id={friend.id} className="">
+                <h3 id={friend.id} className="friend-text-gradient my-5 py-4">
+                  {friend.username}
+                </h3>
               </MDBCardOverlay>
-              <MDBCardFooter className="text-light footer-bg-gradient"></MDBCardFooter>
             </MDBCard>
-              <button id={friend.invite_id} className="btn btn-danger btn-sm p-1"onClick={unfriend}>UnFriend</button>
+            <button
+              id={friend.invite_id}
+              className="btn btn-danger btn-sm p-1"
+              onClick={unfriend}
+            >
+              UnFriend
+            </button>
           </div>
         ))}
       </div>

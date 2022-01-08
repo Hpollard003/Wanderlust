@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import FriendList from "./FriendsList";
 import Search from "./Search";
 
@@ -25,7 +24,7 @@ export const Friends = () => {
   return (
     <div className="text-light position-relative">
       <section className="container p-5 mx-4">
-        <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-green" : "btn-danger"} btn-sm position-absolute mx-5 end-0 `}>{!toggleOpt ? <i class="fas fa-search"></i> : <i className="far fa-times-circle"></i>}</button>
+        <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-green" : "btn-danger"} btn-sm position-absolute mx-5 end-0 `}>{!toggleOpt ? <i className="fas fa-search"></i> : <i className="far fa-times-circle"></i>}</button>
       <div hidden={!toggleOpt} className=" m-5 w-50">
         <Search/>
       </div>
