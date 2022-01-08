@@ -6,22 +6,19 @@ function SignUp({ setCurrentUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
   const [errors, setErrors] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append("username" , username);
+    formData.append("password" , password);
+    formData.append("password_confirmation" , passwordConfirmation);
+    formData.append( "image" ,image)
     fetch("/signup", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username,
-        password,
-        password_confirmation: passwordConfirmation,
-        image,
-      }),
+      body: formData
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => {
@@ -37,6 +34,11 @@ function SignUp({ setCurrentUser }) {
     return errors.map(err => {
       return <div className="alert alert-danger" role="alert" >{err}</div>
     })
+  }
+
+  const fileHandler = (e) => {
+    setImage(e.target.files[0])
+    console.log(image)
   }
 
   return (
@@ -75,13 +77,12 @@ function SignUp({ setCurrentUser }) {
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           />
         <input
-           className="list-group-item"
-          type="img"
-          id="imageUrl"
-          placeholder="Set Img Url for profile picture"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
-          />
+          className="form-control"
+          type="file"
+          accept="image/*"
+          multiple={false}
+          onChange={fileHandler}
+        />
           {errors ? errorRender() : null}
           <button className="btn btn-info w-100" type="submit">
             Sign up
