@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     end
 
     def upload
-      user = @current_user.images.attach(user_params[:images])
+      user = @current_user.image.attach(user_params[:image])
       render json: user, status: :ok
     end
 
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     # Below are the parameters for creating a new user
     private
     def user_params
-      params.permit(:id, :username, :password, :password_confirmation, :images) 
+      params.permit(:id, :username, :password, :password_confirmation, :image) 
     end
 
     def find_user

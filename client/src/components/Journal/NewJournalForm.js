@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const NewJournalForm = ({addJournalHandler , toggled , setToggled}) => {
+const NewJournalForm = ({addJournalHandler , toggler}) => {
   const [title, setTitle] = useState("");
 
 
@@ -9,6 +9,7 @@ const NewJournalForm = ({addJournalHandler , toggled , setToggled}) => {
     addJournalHandler({
       title
     });
+    toggler()
     setTitle('')
   };
 

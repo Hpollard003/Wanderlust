@@ -5,7 +5,6 @@ class CreateInvitations < ActiveRecord::Migration[6.1]
       t.integer :friend_id
       t.boolean :confirmed, default: :false 
 
-      t.timestamps
     end
   end
 end

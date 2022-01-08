@@ -16,6 +16,7 @@ const NewPage = (props) => {
       // image,
       journal_id: id,
     });
+    props.toggler()
     setTitle("");
     setBody("");
     // setImage('')

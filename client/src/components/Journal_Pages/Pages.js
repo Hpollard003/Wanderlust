@@ -65,7 +65,7 @@ const Pages = () => {
         className='btn btn-danger position-absolute end-0'>Close Journal</button>
       <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-info" : "btn-danger"} btn-sm position-absolute my-5 end-0`}>{!toggleOpt ? <i className="fas fa-cogs"></i> : <i className="far fa-times-circle"></i>}</button>  
         <div hidden={!toggled}>
-          <NewPage addPageHandler={addPageHandler} />
+          <NewPage addPageHandler={addPageHandler} toggler={toggler}/>
         </div>
       
       <PageCards pages={pages} setPages={setPages} removeItem={removeItem} toggleOpt={toggleOpt}/>

@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Earfy from "../../assets/earthy.gif";
+import {
+  MDBCard,
+  MDBCardTitle,
+  MDBCardFooter,
+  MDBCardOverlay,
+  MDBCardImage,
+} from "mdb-react-ui-kit";
 
 import FriendRequests from "./FriendRequests";
 
@@ -17,35 +24,70 @@ const FriendList = ({ friends }) => {
         setMyFriendRequests(data.pending_friends);
         console.log(myFriendRequests);
       });
-  }, [friends]);
+  }, []);
 
+  const addFriendsHandler = (event) => {
+    fetch(`/users/${id}/invitations/${event.target.id}`, {
+      method: "PATCH",
+      body: JSON.stringify({ invitation_id: event.target.id }),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((data) => {
+        filter(event.target.id);
+        setMyFriends((prevFriends) => [
+          ...prevFriends,
+          { id: data.id, ...myFriends },
+        ]);
+        console.log(myFriends);
+      });
+  };
 
+  const filter = (id) => {
+    const newFriends = myFriendRequests.filter(
+      (user) => user.invite_id !== parseInt(id)
+    );
+    setMyFriendRequests(newFriends);
+    // console.log(newFriends)
+  };
 
   return (
-    <section className="d-inline-flex ">
-      <img
-        src={Earfy}
-        alt="Earfy is missing"
-        height="250"
-        width="300"
-        className="rounded rounded-pill"
-      />
-      <section>
-        <h1 className="friends-text-gradient">My Friends</h1>{" "}
+    <>
+      <div className="d-inline-flex">
+        <h1 className="friends-text-gradient">Friends</h1>
         <FriendRequests
           myFriendRequests={myFriendRequests}
           setMyFriendRequests={setMyFriendRequests}
           setMyFriends={setMyFriends}
           myFriends={myFriends}
+          addFriendsHandler={addFriendsHandler}
+          filter={filter}
         />
-          <h2 className="friends-text-gradient border text-center rounded-circle p-1 mx-5 border-3 border-info">{myFriends.length}</h2>
+      </div>
+
+      <div className="row shadow">
         {myFriends.map((friend, ind) => (
-          <div className="m-4" key={ind}>
-            <section className="border border-top-0 rounded-pill border-end-0 border-4 border-success text-center">{friend.username}</section>
+          <div className="col-4 p-3" key={ind} id={friend.id}>
+            <MDBCard
+              background=""
+              className="text-light bg-transparent"
+              id={friend.id}
+              onClick={(e) => {
+                // nav(`${e.target.id}`);
+                window.scrollTo(0, 0);
+              }}
+            >
+              <MDBCardImage overlay src={Earfy} alt="..." id={friend.id} />
+              <MDBCardOverlay id={friend.id}>
+                <MDBCardTitle id={friend.id} className="friend-text-gradient">
+                  <header>{friend.username}</header>
+                </MDBCardTitle>
+              </MDBCardOverlay>
+              <MDBCardFooter className="text-light footer-bg-gradient"></MDBCardFooter>
+            </MDBCard>
           </div>
         ))}
-      </section>
-    </section>
+      </div>
+    </>
   );
 };
 

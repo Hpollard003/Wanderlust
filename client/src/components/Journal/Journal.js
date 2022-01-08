@@ -66,7 +66,7 @@ export const Journal = () => {
           {!toggled ? "New Journal" : "Close"}
         </button>
         <div hidden={!toggled}>
-          <NewJournalForm addJournalHandler={addJournalHandler} />
+          <NewJournalForm addJournalHandler={addJournalHandler} toggler={toggler}/>
         </div>
         <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-info" : "btn-danger"} btn-sm position-absolute my-5 end-0`}>{!toggleOpt ? <i className="fas fa-cogs"></i> : <i className="far fa-times-circle"></i>}</button>
         <JournalCard

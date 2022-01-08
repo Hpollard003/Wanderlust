@@ -47,8 +47,6 @@ ActiveRecord::Schema.define(version: 2022_01_05_201101) do
     t.bigint "user_id", null: false
     t.integer "friend_id"
     t.boolean "confirmed", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_invitations_on_user_id"
   end
 
@@ -60,7 +58,6 @@ ActiveRecord::Schema.define(version: 2022_01_05_201101) do
   create_table "pages", force: :cascade do |t|
     t.string "title"
     t.string "body"
-    t.string "image"
     t.integer "journal_id"
   end
 
