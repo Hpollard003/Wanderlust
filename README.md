@@ -6,7 +6,7 @@ Create Digital Travel Journals to keep track or you adventure and share them wit
 
 ## Requirements
 
-- Ruby 2.7.4
+- Ruby 2.6.1
 - NodeJS (v14 or higher), and npm
 - Postgresql
 
