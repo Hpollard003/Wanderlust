@@ -2,8 +2,7 @@
 
 ## Description
 
-A simple character creator.
-OPENSOURCE
+Create Digital Travel Journals to keep track or you adventure and share them with friends.
 
 ## Requirements
 
