@@ -7,7 +7,8 @@ class InvitationsController < ApplicationController
   end
 
   def follow
-    Invitation.create!(invite_params)
+    follow = Invitation.create!(invite_params)
+    render json: follow
   end
     
   def destroy

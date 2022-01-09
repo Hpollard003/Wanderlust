@@ -23,7 +23,7 @@ const FriendList = ({ friends, sendInvite }) => {
 
         console.log(myFriendRequests);
       });
-  }, [numOfFriends]);
+  }, [numOfFriends , friends]);
 
   const addFriendsHandler = (event) => {
     fetch(`/users/${id}/invitations/${event.target.id}`, {

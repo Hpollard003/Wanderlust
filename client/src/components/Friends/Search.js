@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Search = ({ friends, sendInvite, followUser }) => {
+const Search = ({ friends, sendInvite, followUser , currentUser }) => {
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
@@ -17,6 +17,7 @@ const Search = ({ friends, sendInvite, followUser }) => {
       setFilteredUsers(newFilter);
     }
   };
+
 
   return (
     <div className="position-relative me-3 end-0 w-50">

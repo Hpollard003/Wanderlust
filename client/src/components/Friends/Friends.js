@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import FriendList from "./FriendsList";
 import Search from "./Search";
 
 export const Friends = ({currentUser}) => {
   const [friends, setFriends] = useState([]);
   const [toggleOpt, setToggleOpt] = useState(false);
+  const { id, numOfFriends, username } = useParams();
+  const nav = useNavigate();
 
   useEffect(() => {
     fetch("/users")
@@ -32,8 +35,13 @@ export const Friends = ({currentUser}) => {
         "user_id" : currentUser.id,
         "confirmed": true
       })
-    })
-  }
+    }).then((resp)=> resp.json())
+      .then(() => {
+        nav(`/${username}/${id}/friends/${parseInt(numOfFriends) + 1}`);
+      })
+      .catch((err) => console.log(err))
+    }
+  
 
 
   const optionsToggler = () => {
@@ -45,7 +53,7 @@ export const Friends = ({currentUser}) => {
       <section className="container p-5 mx-4">
         <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-green" : "btn-danger"} btn-sm position-absolute ms-3 start-0 `} title="Search">{!toggleOpt ? <i className="fas fa-search"></i> : <i className="far fa-times-circle"></i>}</button>
       <div hidden={!toggleOpt} className=" m-5 w-50">
-        <Search friends={friends} sendInvite={sendInvite} followUser={followUser}/>
+        <Search friends={friends} sendInvite={sendInvite} followUser={followUser} currentUser={currentUser}/>
       </div>
         <FriendList
           friends={friends}
