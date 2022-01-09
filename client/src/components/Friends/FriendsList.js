@@ -133,6 +133,6 @@ const FriendList = ({ friends , sendInvite }) => {
       </div>
     </>
   );
-};
+}
 
 export default FriendList;
