@@ -14,7 +14,7 @@ const FriendList = ({ friends , sendInvite }) => {
   const [myFriendRequests, setMyFriendRequests] = useState([]);
   const [numberOfFriends, setNumberOfFriends] = useState(0)
   const nav = useNavigate();
-  const { id , numOfFriends } = useParams();
+  const { id , numOfFriends, username } = useParams();
 
   useEffect(() => {
     fetch(`/users/${id}`)
@@ -22,10 +22,10 @@ const FriendList = ({ friends , sendInvite }) => {
       .then((data) => {
         setMyFriends(data.friends);
         setMyFriendRequests(data.pending_friends);
-        setNumberOfFriends(myFriends.length);
+        
         console.log(myFriendRequests);
       });
-  }, []);
+  }, [numOfFriends, id]);
 
   const addFriendsHandler = (event) => {
     fetch(`/users/${id}/invitations/${event.target.id}`, {
@@ -33,11 +33,7 @@ const FriendList = ({ friends , sendInvite }) => {
       body: JSON.stringify({ invitation_id: event.target.id }),
       headers: { "Content-Type": "application/json" },
     }).then((data) => {
-      // filter(event.target.id);
-      setMyFriends((prevFriends) => [
-        ...prevFriends,
-        { id: data.invite_id, ...myFriendRequests },
-      ]);
+      nav(`/${username}/${id}/friends/${myFriends.length + 1}`)
     });
   };
 
@@ -119,7 +115,7 @@ const FriendList = ({ friends , sendInvite }) => {
                   id={friend.id}
                   className="btn btn-info btn-sm p-2 mx-3 rounded-circle"
                   onClick={(e) => {
-                    nav(`${e.target.id}/journals`);
+                    nav(`journals/${e.target.id}`);
                     window.scrollTo(0, 0);
                   }}
                   title={`${friend.username}'s Journals`}

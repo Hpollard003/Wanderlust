@@ -17,11 +17,21 @@ export const Friends = ({currentUser}) => {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({"ids": { 
-        "id1" :  e.target.id, 
-        "id2" : currentUser.id
+        "id1" : currentUser.id, 
+        "id2" :  e.target.id
       }})
     })
+  }
 
+  const followUser = (e) => {
+    fetch(`/users/${currentUser.id}/invitations`,{
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({"ids": { 
+        "id1" : e.target.id, 
+        "id2" :  currentUser.id
+      }})
+    })
   }
 
 
@@ -34,7 +44,7 @@ export const Friends = ({currentUser}) => {
       <section className="container p-5 mx-4">
         <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-green" : "btn-danger"} btn-sm position-absolute mx-5 end-0 `} title="Search">{!toggleOpt ? <i className="fas fa-search"></i> : <i className="far fa-times-circle"></i>}</button>
       <div hidden={!toggleOpt} className=" m-5 w-50">
-        <Search friends={friends} sendInvite={sendInvite}/>
+        <Search friends={friends} sendInvite={sendInvite} followUser={followUser}/>
       </div>
         <FriendList
           friends={friends}

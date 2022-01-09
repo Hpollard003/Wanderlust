@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Search = ({ friends , sendInvite }) => {
+const Search = ({ friends , sendInvite , followUser }) => {
   const [q, setQ] = useState("");
   const [searchParam] = useState(["capital", "name"]);
   const filter = (q) => friends.filter((item) => {
@@ -15,7 +15,7 @@ const Search = ({ friends , sendInvite }) => {
 });
 
   return (
-    <div className="wrapper position-relative">
+    <div className="wrapper w-50">
       <div className="search-wrapper">
         <label htmlFor="search-form">
           <input
@@ -45,7 +45,8 @@ const Search = ({ friends , sendInvite }) => {
                 {friend.username}
               </h4>
             </div>
-            <button id={friend.id} onClick={sendInvite}>Add</button>
+            <button id={friend.id} onClick={sendInvite} className="btn btn-primary btn-sm ">Send Invite</button>
+            <button id={friend.id} onClick={followUser} className="btn btn-primary btn-sm mx-3">Follow</button>
           </article>
         ))}
       </ul>

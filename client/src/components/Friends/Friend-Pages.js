@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 const FRIEND_PAGES = () => {
   const [pages, setPages] = useState([]);
   const nav = useNavigate();
-  const { journal_id , friend_id, id, username } = useParams();
+  const { journal_id , friend_id, id, username ,numOfFriends } = useParams();
 
   useEffect(() => {
     fetch(`/journals/${journal_id}`)
@@ -17,7 +17,7 @@ const FRIEND_PAGES = () => {
   return (
     <div>
       <h1 className="text-center text-gradient">Pages </h1>
-      <button onClick={() => nav(`/${username}/${id}/friends/${friend_id}/journals`)} 
+      <button onClick={() => nav(`/${username}/${id}/friends/${numOfFriends}/journals/${friend_id}`)} 
         className='btn btn-danger position-absolute end-0'>Close Journal</button>
       <div className="page-list">
         {pages.map((page, ind) => (

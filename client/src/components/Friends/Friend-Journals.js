@@ -13,7 +13,7 @@ const FRIEND_JOURNALS = () => {
   const [journals, setJournals] = useState([]);
   const [name , setName] = useState("")
   const nav = useNavigate();
-  const { friend_id, username, id } = useParams();
+  const { friend_id, username, id , numOfFriends } = useParams();
 
   useEffect(() => {
     fetch(`/users/${friend_id}`)
@@ -28,7 +28,7 @@ const FRIEND_JOURNALS = () => {
     <>
       <Outlet />
       <h1 className="text-center text-gradient">Journals </h1>
-      <button onClick={() => nav(`/${username}/${id}/friends/`)} 
+      <button onClick={() => nav(`/${username}/${id}/friends/${numOfFriends}`)} 
         className='btn btn-danger position-absolute end-0 mx-3'>Close {name}'s Journals</button>
       <div className="page-list">
         {journals.map((journal, ind) => (
@@ -37,7 +37,7 @@ const FRIEND_JOURNALS = () => {
               className="text-light bg-transparent journal"
               id={journal.id}
               onClick={(e) => {
-                nav(`${e.target.id}`);
+                nav(`pages/${e.target.id}`);
                 window.scrollTo(0, 0);
               }}
             >
