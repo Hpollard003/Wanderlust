@@ -20,6 +20,11 @@ const FRIEND_PAGES = () => {
       <button onClick={() => nav(`/${username}/${id}/friends/${numOfFriends}/journals/${friend_id}`)} 
         className='btn btn-danger position-absolute end-0 mx-3'>Close Journal</button>
       <div className="page-list">
+      {pages.length === 0 ? (
+          <>
+          <h3 className="text-light mx-5 border border-5 rounded-pill bg-green px-3 py-2">Nope no pages here.</h3> 
+          </>
+        ) : null}
         {pages.map((page, ind) => (
           <article id={page.id} className="page" key={ind}>
             <h2 className="text-gradient">{page.title}</h2>

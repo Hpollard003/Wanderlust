@@ -15,6 +15,11 @@ export const JournalCard = ({ journals, toggleOpt, removeItem }) => {
   const renderjournalList = () => {
     return (
       <div className="row">
+        {journals.length === 0 ? (
+          <>
+          <h1 className="text-center my-5 border border-5 rounded-pill bg-green">Click New Journal To Get Started</h1> 
+          </>
+        ) : null}
         {journals.map((journal, ind) => (
           <div className="col-4 p-3" key={ind} id={journal.id}>
             <MDBCard

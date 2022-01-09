@@ -64,8 +64,14 @@ const FriendList = ({ friends, sendInvite }) => {
           sendInvite={sendInvite}
         />
       </div>
-
+      {myFriends.length === 0 ? (
+          <>
+          <h3 className="text-center mx-5 border border-5 rounded-pill bg-green px-3 py-2 my-4">Oh dang Looks like you have no friends</h3> 
+          <p className="text-center mx-5 border border-5 rounded-pill bg-green px-3 py-2">Click the Search Icon and try to find some.</p>
+          </>
+        ) : null}
       <div className="row">
+
         {myFriends.map((friend, ind) => (
           <div
             className="col-4 px-4 position-relative py-5"

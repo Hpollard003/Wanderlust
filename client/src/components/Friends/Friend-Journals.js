@@ -31,6 +31,11 @@ const FRIEND_JOURNALS = () => {
       <button onClick={() => nav(`/${username}/${id}/friends/${numOfFriends}`)} 
         className='btn btn-danger position-absolute end-0 mx-3'>Close {name}'s Journals</button>
       <div className="page-list">
+      {journals.length === 0 ? (
+          <>
+          <h1 className="text-center my-5 border border-5 rounded-pill bg-green">Click New Journal To Get Started</h1> 
+          </>
+        ) : null}
         {journals.map((journal, ind) => (
           <div className="p-1" key={ind} id={journal.id}>
             <MDBCard
