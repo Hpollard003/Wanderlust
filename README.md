@@ -2,13 +2,13 @@
 
 ## Description
 
-Create Digital Travel Journals to keep track or you adventure and share them with friends.
+Create Digital Travel Journals to keep track of your adventure and share them with friends.
 
 ## Requirements
 
 - Ruby 2.6.1
 - NodeJS (v14 or higher), and npm
-- Postgresql
+- PostgreSQL
 
 See Environment Setup below for instructions on installing these tools if you
 don't already have them.
