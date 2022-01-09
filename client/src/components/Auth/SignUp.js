@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import UploadImage from "../UploadImage";
 
 function SignUp({ setCurrentUser }) {
   const navigate = useNavigate();
