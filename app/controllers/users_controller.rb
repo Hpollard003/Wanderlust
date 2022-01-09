@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize, only: [:create, :show]
+    skip_before_action :authorize, only: [:create, :show, :upload]
   
     # returns all users (for use in the future when adding a friends list option)
     def index
@@ -22,8 +22,9 @@ class UsersController < ApplicationController
     end
 
     def upload
-      user = @current_user.image.attach(user_params[:image])
-      render json: user, status: :ok
+        user = find_user
+        user.update(user_params)
+        render json: user, status: :ok
     end
 
     # Show finds a journal by their id 

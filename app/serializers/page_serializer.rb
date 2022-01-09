@@ -1,3 +1,3 @@
 class PageSerializer < ActiveModel::Serializer
-  attributes :id, :title, :body, :image, :journal_id
+  attributes :id, :title, :body, :journal_id
 end
