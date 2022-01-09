@@ -33,7 +33,7 @@ const FRIEND_JOURNALS = () => {
       <div className="page-list">
       {journals.length === 0 ? (
           <>
-          <h1 className="text-center my-5 border border-5 rounded-pill bg-green">Click New Journal To Get Started</h1> 
+          <h1 className="text-center p-3 border border-5 rounded-pill bg-green">Nothing To See Here</h1> 
           </>
         ) : null}
         {journals.map((journal, ind) => (

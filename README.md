@@ -13,6 +13,15 @@ Create Digital Travel Journals to keep track or you adventure and share them wit
 See Environment Setup below for instructions on installing these tools if you
 don't already have them.
 
+## Quick Start
+```
+bundle install
+rails db:create
+rails db:migrate db:seed
+npm install --prefix client
+npm start --prefix client
+```
+
 ## Setup
 
 ```sh
@@ -177,24 +186,6 @@ troubleshoot:
   account. Check [this video](https://www.youtube.com/watch?v=bQC5izDzOgE) for
   one possible fix.
 
-- If your app failed to deploy at the build stage, make sure your local
-  environment is set up correctly by following the steps at the beginning of
-  this lesson. Check that you have the latest versions of Ruby and Bundler, and
-  ensure that Postgresql was installed successfully.
-
-- If you deployed successfully, but you ran into issues when you visited the
-  site, make sure you migrated and seeded the database. Also, make sure that
-  your application works locally and try to debug any issues on your local
-  machine before re-deploying. You can also check the logs on the server by
-  running `heroku logs`.
-
-For additional support, check out these guides on Heroku:
-
-- [Deploying a Rails 6 App to Heroku][heroku rails deploying guide]
-- [Rails Troubleshooting on Heroku][troubleshooting guide on heroku]
-
 [postgres downloads page]: https://postgresapp.com/downloads.html
-[heroku rails deploying guide]: https://devcenter.heroku.com/articles/getting-started-with-rails6
-[troubleshooting guide on heroku]: https://devcenter.heroku.com/articles/getting-started-with-rails6#troubleshooting
 
 # WanderLust
