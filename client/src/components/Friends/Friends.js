@@ -24,13 +24,14 @@ export const Friends = ({currentUser}) => {
   }
 
   const followUser = (e) => {
-    fetch(`/users/${currentUser.id}/invitations`,{
+    fetch(`/invites/${currentUser.id}`,{
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({"ids": { 
-        "id1" : e.target.id, 
-        "id2" :  currentUser.id
-      }})
+      body: JSON.stringify({ 
+        "friend_id" : e.target.id, 
+        "user_id" : currentUser.id,
+        "confirmed": true
+      })
     })
   }
 

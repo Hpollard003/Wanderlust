@@ -18,7 +18,7 @@ const FRIEND_PAGES = () => {
     <div>
       <h1 className="text-center text-gradient">Pages </h1>
       <button onClick={() => nav(`/${username}/${id}/friends/${numOfFriends}/journals/${friend_id}`)} 
-        className='btn btn-danger position-absolute end-0'>Close Journal</button>
+        className='btn btn-danger position-absolute end-0 mx-3'>Close Journal</button>
       <div className="page-list">
         {pages.map((page, ind) => (
           <article id={page.id} className="page" key={ind}>

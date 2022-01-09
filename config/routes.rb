@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   
   # Everything below is a custom route that get specific actions from specific controllers
+  post "/invites/:user_id" , to: "invitations#follow"
   post "/signup", to: "users#create"
   get "/me", to: "users#profile"
   post "/login", to: "sessions#create"

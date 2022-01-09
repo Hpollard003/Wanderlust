@@ -23,7 +23,7 @@ const FriendList = ({ friends, sendInvite }) => {
 
         console.log(myFriendRequests);
       });
-  }, [numOfFriends, id, username]);
+  }, [numOfFriends]);
 
   const addFriendsHandler = (event) => {
     fetch(`/users/${id}/invitations/${event.target.id}`, {
@@ -119,6 +119,8 @@ const FriendList = ({ friends, sendInvite }) => {
                     {friend.journals.length}
                   </MDBBadge>
                 </div>
+              </MDBCardOverlay>
+            </MDBCard>
                 <button
                   id={friend.invite_id}
                   className="btn btn-danger btn-sm p-2 rounded-circle"
@@ -130,8 +132,6 @@ const FriendList = ({ friends, sendInvite }) => {
                     className="fas fa-user-times px-1 my-1"
                   ></p>
                 </button>
-              </MDBCardOverlay>
-            </MDBCard>
           </div>
         ))}
       </div>

@@ -2,7 +2,7 @@ class UserSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
   include ImageConcern
 
-  attributes :id, :username, :friends, :pending_friends, :journals, :image
+  attributes :id, :username, :friends, :pending_friends, :journals, :image, :invitations
 
   def image
     rails_blob_url(object.image, only_path: true) if object.image.attached?
