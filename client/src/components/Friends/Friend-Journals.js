@@ -11,6 +11,7 @@ import {
 
 const FRIEND_JOURNALS = () => {
   const [journals, setJournals] = useState([]);
+  const [name , setName] = useState("")
   const nav = useNavigate();
   const { friend_id, username, id } = useParams();
 
@@ -18,29 +19,29 @@ const FRIEND_JOURNALS = () => {
     fetch(`/users/${friend_id}`)
       .then((resp) => resp.json())
       .then((data) => {
+        setName(data.username);
         setJournals(data.journals);
       });
-  }, []);
+  }, [friend_id, username, id]);
 
   return (
     <>
       <Outlet />
       <h1 className="text-center text-gradient">Journals </h1>
       <button onClick={() => nav(`/${username}/${id}/friends/`)} 
-        className='btn btn-danger position-absolute end-0'>Close Journals</button>
+        className='btn btn-danger position-absolute end-0 mx-3'>Close {name}'s Journals</button>
       <div className="page-list">
         {journals.map((journal, ind) => (
-          <div className="col-4 p-3" key={ind} id={journal.id}>
+          <div className="p-1" key={ind} id={journal.id}>
             <MDBCard
-              background=""
-              className="text-light bg-transparent page"
+              className="text-light bg-transparent journal"
               id={journal.id}
               onClick={(e) => {
                 nav(`${e.target.id}`);
                 window.scrollTo(0, 0);
               }}
             >
-              <MDBCardImage overlay src={Jgif} alt="..." id={journal.id} />
+              <MDBCardImage overlay className="rounded-3 journal-image" src={Jgif} alt="..." id={journal.id} />
               <MDBCardOverlay id={journal.id}>
                 <MDBCardTitle id={journal.id} className="journal-text-gradient">
                   <header id={journal.id} className="m-4 fs-2">{journal.title}</header>

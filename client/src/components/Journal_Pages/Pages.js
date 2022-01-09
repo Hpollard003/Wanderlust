@@ -7,7 +7,7 @@ const Pages = () => {
   const [pages, setPages] = useState([]);
   const [toggled, setToggled] = useState(false);
   const [toggleOpt, setToggleOpt] = useState(false);
-  const nav = useNavigate()
+  const nav = useNavigate();
 
   const { id, username } = useParams();
 
@@ -22,24 +22,19 @@ const Pages = () => {
   const addPageHandler = (page) => {
     fetch(`/journals/${id}/pages`, {
       method: "POST",
-      body: JSON.stringify(
-        page,
-      ),
+      body: JSON.stringify(page),
       headers: { "Content-Type": "application/json" },
     })
       .then((response) => response.json())
       .then((data) => {
-        setPages((prevjournals) => [
-          ...prevjournals,
-          { id: data.id, ...page },
-        ]);
+        setPages((prevjournals) => [...prevjournals, { id: data.id, ...page }]);
         console.log(page);
       });
   };
 
   const removeItem = (e) => {
     fetch(`/journals/${id}/pages/${e.target.id}`, {
-      method: "DELETE"
+      method: "DELETE",
     })
       .then((resp) => resp.json())
       .then(() => {
@@ -60,15 +55,43 @@ const Pages = () => {
   return (
     <div className="px-5">
       <h1 className="text-center text-gradient">Pages </h1>
-      <button onClick={toggler} className={`btn ${!toggled ? "btn-info" : "btn-danger"} position-absolute start-0`}>{!toggled ? "New Page" : "Close"}</button>
-      <button onClick={() => nav(`/journals/${username}`)} 
-        className='btn btn-danger position-absolute end-0'>Close Journal</button>
-      <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-info" : "btn-danger"} btn-sm position-absolute my-5 end-0`}>{!toggleOpt ? <i className="fas fa-cogs"></i> : <i className="far fa-times-circle"></i>}</button>  
-        <div hidden={!toggled}>
-          <NewPage addPageHandler={addPageHandler} toggler={toggler}/>
-        </div>
-      
-      <PageCards pages={pages} setPages={setPages} removeItem={removeItem} toggleOpt={toggleOpt}/>
+      <button
+        onClick={toggler}
+        className={`btn ${
+          !toggled ? "btn-info" : "btn-danger"
+        } position-absolute start-0`}
+      >
+        {!toggled ? "New Page" : "Close"}
+      </button>
+      <button
+        onClick={() => nav(`/journals/${username}`)}
+        className="btn btn-danger position-absolute end-0"
+      >
+        Close Journal
+      </button>
+      <button
+        onClick={optionsToggler}
+        className={`btn ${
+          !toggleOpt ? "btn-info" : "btn-danger"
+        } btn-sm position-absolute my-5 end-0`}
+        title="Options"
+      >
+        {!toggleOpt ? (
+          <i className="fas fa-cogs" title="Options"></i>
+        ) : (
+          <i className="far fa-times-circle" title="Close"></i>
+        )}
+      </button>
+      <div hidden={!toggled}>
+        <NewPage addPageHandler={addPageHandler} toggler={toggler} />
+      </div>
+
+      <PageCards
+        pages={pages}
+        setPages={setPages}
+        removeItem={removeItem}
+        toggleOpt={toggleOpt}
+      />
     </div>
   );
 };

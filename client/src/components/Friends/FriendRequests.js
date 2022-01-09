@@ -7,7 +7,6 @@ const FriendRequests = ({
   setMyFriendRequests,
   addFriendsHandler,
   setMyFriends,
-  filter,
   myFriends,
 }) => {
   const { id } = useParams();
@@ -20,6 +19,12 @@ const FriendRequests = ({
       filter(event.target.id);
     });
   };
+  const filter = (id) => {
+    const newFriends = myFriendRequests.filter(
+      (user) => user.invite_id !== parseInt(id)
+    );
+    setMyFriendRequests(newFriends);
+  };
 
 
   const toggler = () => {
@@ -30,7 +35,7 @@ const FriendRequests = ({
     <div>
       <button type="button" className="btn position-relative" onClick={toggler}>
         {" "}
-        <h2 className="fs-1 fas fa-users"> </h2>
+        <h2 className="fs-1 fas fa-users text-light" title="Requests"> </h2>
         <MDBBadge
           className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
           notification
@@ -50,6 +55,7 @@ const FriendRequests = ({
                 <button
                   className="btn btn-info btn-sm"
                   id={friendRequest.invite_id}
+                  user_id={friendRequest.id}
                   onClick={addFriendsHandler}
                 >
                   Accept

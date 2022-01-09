@@ -25,7 +25,7 @@ const Auth = ({ setCurrentUser, currentUser }) => {
           <Route path="journals/:username" element={<Journals />}>
             <Route path=":id" element={<PagesPage />} />
           </Route>
-          <Route path="/:username/:id/friends" element={<FriendsPage/>}>
+          <Route path="/:username/:id/friends/:numOfFriends" element={<FriendsPage currentUser={currentUser} />}>
             <Route path=":friend_id/journals" element={<FRIEND_JOURNALS/>}>
               <Route path=":journal_id" element={<FRIEND_PAGES/>}/>
             </Route>

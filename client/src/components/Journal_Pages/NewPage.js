@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 const NewPage = (props) => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  // const [image, setImage] = useState("");
   const { id } = useParams();
 
   const handleSubmit = (e) => {
@@ -13,13 +12,12 @@ const NewPage = (props) => {
     props.addPageHandler({
       title,
       body,
-      // image,
+
       journal_id: id,
     });
     props.toggler()
     setTitle("");
     setBody("");
-    // setImage('')
   };
   return (
     <>
@@ -27,6 +25,7 @@ const NewPage = (props) => {
       <div className="card w-50 start-0 bg-transparent">
         <form onSubmit={handleSubmit} className="list-group list-group-flush">
           <input
+            required
             type="text"
             className="list-group-item w-50"
             name="title"
@@ -39,6 +38,7 @@ const NewPage = (props) => {
             }}
           />
           <textarea
+          required
             className="form-control"
             style={{ height: "100px" }}
             name="body"

@@ -19,6 +19,7 @@ const NewJournalForm = ({addJournalHandler , toggler}) => {
     <form onSubmit={handleSubmit} className="list-group list-group-flush w-25 "> 
  
         <input
+        required
           type="text"
           className="list-group-item"
           name="title"

@@ -83,7 +83,7 @@ export const Navbar = ({ setCurrentUser, currentUser }) => {
                       <MDBNavbarLink
                         onClick={() =>
                           nav(
-                            `/${currentUser.username}/${currentUser.id}/friends/`
+                            `/${currentUser.username}/${currentUser.id}/friends/${currentUser.friends.length}`
                           )
                         }
                       >
@@ -95,7 +95,7 @@ export const Navbar = ({ setCurrentUser, currentUser }) => {
               </MDBNavbarNav>
               {currentUser ? (
                 <div className="nav-link ">
-                  <Logout setCurrentUser={setCurrentUser} />
+                  <Logout setCurrentUser={setCurrentUser} currentUser={currentUser}/>
                 </div>
               ) : (
                 <div className="row m-3">

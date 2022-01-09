@@ -41,7 +41,9 @@ export const Editor = () => {
 
   return (
     <div>
-      <div className="card shadow-lg w-25 position-absolute top-50 start-50 translate-middle bg-transparent">
+      <div className="card position-absolute top-50 start-50 translate-middle bg-transparent border-0">
+      <button onClick={() => navigate(-1)} className="btn text-dark">Go Back</button>
+      <h2 className="text-gradient text-center">Edit {titleText}</h2>
         <form onSubmit={editBtn} className="list-group list-group-flush">
             <input
               type="text"

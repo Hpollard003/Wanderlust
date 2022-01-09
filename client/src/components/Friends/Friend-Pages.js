@@ -12,7 +12,7 @@ const FRIEND_PAGES = () => {
       .then((data) => {
         setPages(data.pages);
       });
-  }, []);
+  }, [journal_id, friend_id, id]);
 
   return (
     <div>

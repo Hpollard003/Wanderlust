@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Auth from "./AuthenticatedApp";
 import UnAuth from "./UnAuthenticatedApp";
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 
 
 
@@ -28,7 +28,7 @@ function App() {
         ) : (
           <UnAuth setCurrentUser={setCurrentUser} />
           )}
-          {/* <Footer/> */}
+          <Footer currentUser={currentUser}/>
     </div>
   );
 }

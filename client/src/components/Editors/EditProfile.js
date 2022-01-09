@@ -47,6 +47,7 @@ const EditProfile = () => {
 
   return (
     <div className="card position-absolute top-50 start-50 translate-middle bg-transparent border-0">
+      <button onClick={() => navigate(-1)} className="btn text-dark">Go Back</button>
       <h1 className="card-header fs-3 text-center bg-green fs-5">
         Edit Profile
       </h1>

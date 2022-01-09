@@ -14,14 +14,16 @@ const PageCards = ({ pages, toggleOpt, removeItem }) => {
                 className="btn btn-sm btn-outline-danger rounded-circle"
                 onClick={removeItem}
                 id={page.id}
+                title="Remove Page"
               >
-                <i className="fas fa-trash" id={page.id}></i>
+                <i className="fas fa-trash" title="Remove Page" id={page.id}></i>
               </button>
               <a
                 href={`/journals/edit/${page.journal_id}/pages/${page.id}`}
                 className="btn btn-sm btn-outline-primary mx-2 rounded-circle"
+                title="Edit Page"
               >
-                <i className="far fa-edit"></i>
+                <i className="far fa-edit" title="Edit Page"></i>
               </a>
             </div>
               <h4 className="text-light">{ind + 1}</h4>
