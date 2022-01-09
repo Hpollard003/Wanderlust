@@ -59,7 +59,7 @@ const Pages = () => {
         onClick={toggler}
         className={`btn ${
           !toggled ? "btn-info" : "btn-danger"
-        } position-absolute start-0`}
+        } position-relative start-0`}
       >
         {!toggled ? "New Page" : "Close"}
       </button>
@@ -73,7 +73,7 @@ const Pages = () => {
         onClick={optionsToggler}
         className={`btn ${
           !toggleOpt ? "btn-info" : "btn-danger"
-        } btn-sm position-absolute my-5 end-0`}
+        } btn-sm position-absolute my-5 mx-3 end-0`}
         title="Options"
       >
         {!toggleOpt ? (

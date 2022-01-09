@@ -8,13 +8,11 @@ import {
   MDBCardImage,
 } from "mdb-react-ui-kit";
 
-
-const FriendList = ({ friends , sendInvite }) => {
+const FriendList = ({ friends, sendInvite }) => {
   const [myFriends, setMyFriends] = useState([]);
   const [myFriendRequests, setMyFriendRequests] = useState([]);
-  const [numberOfFriends, setNumberOfFriends] = useState(0)
   const nav = useNavigate();
-  const { id , numOfFriends, username } = useParams();
+  const { id, numOfFriends, username } = useParams();
 
   useEffect(() => {
     fetch(`/users/${id}`)
@@ -22,10 +20,10 @@ const FriendList = ({ friends , sendInvite }) => {
       .then((data) => {
         setMyFriends(data.friends);
         setMyFriendRequests(data.pending_friends);
-        
+
         console.log(myFriendRequests);
       });
-  }, [numOfFriends, id]);
+  }, [numOfFriends, id, username]);
 
   const addFriendsHandler = (event) => {
     fetch(`/users/${id}/invitations/${event.target.id}`, {
@@ -33,7 +31,7 @@ const FriendList = ({ friends , sendInvite }) => {
       body: JSON.stringify({ invitation_id: event.target.id }),
       headers: { "Content-Type": "application/json" },
     }).then((data) => {
-      nav(`/${username}/${id}/friends/${myFriends.length + 1}`)
+      nav(`/${username}/${id}/friends/${myFriends.length + 1}`);
     });
   };
 
@@ -70,39 +68,60 @@ const FriendList = ({ friends , sendInvite }) => {
       <div className="row">
         {myFriends.map((friend, ind) => (
           <div
-            className="col-4 px-4 position-relative"
+            className="col-4 px-4 position-relative py-5"
             key={ind}
             id={friend.id}
           >
             <MDBCard
               className="text-light bg-transparent p-1 rounded-circle border-0"
               id={friend.id}
+     
             >
-              <div className="position-absolute top-0 start-100 translate-middle text-center ">
-                Journals
-                <MDBBadge className="badge rounded-pill bg-info" notification>
-                  {friend.journals.length}
-                </MDBBadge>
-              </div>
               <MDBCardImage
                 overlay
-                height="290px"
+                height="300"
+                width={300}
                 src={friend.image}
                 alt="..."
                 id={friend.id}
                 title={`${friend.username}`}
                 className="rounded-circle border border-5 border-top-0 border-end-0 shadow-lg bg-dark"
               />
-              <MDBCardOverlay id={friend.id} className="text-center" title={`${friend.username}`}>
+              <MDBCardOverlay
+                id={friend.id}
+                className="text-center"
+                title={`${friend.username}`}
+                onClick={(e) => {
+                  nav(`journals/${e.target.id}`);
+                  window.scrollTo(0, 0);
+                }}
+              >
                 <h3 id={friend.id} className="friend-text-gradient mb-5 py-4">
                   {friend.username}
                 </h3>
                 <br></br>
                 <br></br>
-                <br></br>
+                <div
+                  className="position-relative top-0 start-50 translate-middle text-center mt-5"
+                  id={friend.id}
+                  onClick={(e) => {
+                    nav(`journals/${e.target.id}`);
+                    window.scrollTo(0, 0);
+                  }}
+                >
+                  Journals
+                  <MDBBadge
+                    className="badge rounded-pill bg-info p-2 px-4"
+                    notification
+                    id={friend.id}
+                    title={`${friend.username}'s Journals`}
+                  >
+                    {friend.journals.length}
+                  </MDBBadge>
+                </div>
                 <button
                   id={friend.invite_id}
-                  className="btn btn-danger btn-sm p-2 mx-2 my-5 rounded-circle"
+                  className="btn btn-danger btn-sm p-2 rounded-circle"
                   onClick={unfriend}
                   title="Unfriend"
                 >
@@ -111,17 +130,6 @@ const FriendList = ({ friends , sendInvite }) => {
                     className="fas fa-user-times px-1 my-1"
                   ></p>
                 </button>
-                <button
-                  id={friend.id}
-                  className="btn btn-info btn-sm p-2 mx-3 rounded-circle"
-                  onClick={(e) => {
-                    nav(`journals/${e.target.id}`);
-                    window.scrollTo(0, 0);
-                  }}
-                  title={`${friend.username}'s Journals`}
-                >
-                  <p id={friend.id} className="fas fa-book px-2 my-1"></p>
-                </button>
               </MDBCardOverlay>
             </MDBCard>
           </div>
@@ -129,6 +137,6 @@ const FriendList = ({ friends , sendInvite }) => {
       </div>
     </>
   );
-}
+};
 
 export default FriendList;

@@ -60,6 +60,10 @@ body::-webkit-scrollbar-track-piece {
   background-color: #D0DAEE;
 }
 
+.container {
+    max-width: 1500px;
+}
+
 a {
   text-decoration: none;
 }

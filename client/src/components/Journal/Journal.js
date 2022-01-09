@@ -61,14 +61,14 @@ export const Journal = () => {
       <section className="container px-5">
         <button
           onClick={toggler}
-          className={`btn ${!toggled ? "btn-info" : "btn-danger"} position-absolute start-0`}
+          className={`btn ${!toggled ? "btn-info" : "btn-danger"} position-relative start-0`}
         >
           {!toggled ? "New Journal" : "Close"}
         </button>
         <div hidden={!toggled}>
           <NewJournalForm addJournalHandler={addJournalHandler} toggler={toggler}/>
         </div>
-        <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-info" : "btn-danger"} btn-sm position-absolute my-5 end-0`}>{!toggleOpt ? <i className="fas fa-cogs"></i> : <i className="far fa-times-circle"></i>}</button>
+        <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-info" : "btn-danger"} btn-sm position-absolute my-5 mx-3 end-0`}>{!toggleOpt ? <i className="fas fa-cogs"></i> : <i className="far fa-times-circle"></i>}</button>
         <JournalCard
           journals={journals}
           removeItem={removeItem}

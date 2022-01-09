@@ -9,7 +9,7 @@ export const Friends = ({currentUser}) => {
   useEffect(() => {
     fetch("/users")
     .then((resp) => resp.json())
-    .then((data) => setFriends(data))
+    .then((data) => setFriends(data.filter(friend => friend.id !== currentUser.id)))
   } , [])
 
   const sendInvite = (e) => {
@@ -42,7 +42,7 @@ export const Friends = ({currentUser}) => {
   return (
     <div className="text-light position-relative">
       <section className="container p-5 mx-4">
-        <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-green" : "btn-danger"} btn-sm position-absolute mx-5 end-0 `} title="Search">{!toggleOpt ? <i className="fas fa-search"></i> : <i className="far fa-times-circle"></i>}</button>
+        <button onClick={optionsToggler} className={`btn ${!toggleOpt ? "btn-green" : "btn-danger"} btn-sm position-absolute ms-3 start-0 `} title="Search">{!toggleOpt ? <i className="fas fa-search"></i> : <i className="far fa-times-circle"></i>}</button>
       <div hidden={!toggleOpt} className=" m-5 w-50">
         <Search friends={friends} sendInvite={sendInvite} followUser={followUser}/>
       </div>

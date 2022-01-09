@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 export const PageEditor = () => {
@@ -14,7 +14,7 @@ export const PageEditor = () => {
       setTitle(data.title);
       setBody(data.body);
     });
-  }, []);
+  }, [id , pageId]);
   
   const editPageHandler = (page) => {
     fetch(`/journals/${id}/pages/${pageId}`, {
