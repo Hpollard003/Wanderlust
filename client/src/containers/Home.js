@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ArcherGifs from "../assets/ArcherGifs";
-import Carousel from "../assets/Carousel";
+import ArcherGifs from "../components/ArcherGifs";
+import Carousel from "../components/Carousel";
 
 import Footer from "../components/Footer";
 
@@ -18,18 +18,21 @@ export const Home = ({ currentUser }) => {
   return (
     <div className="text-center m-5">
       {!toggled ? (
-        <h1 className="text-gradient">
+        <div className="text-gradient">
           <h1 className="display-2">Wanderlust.</h1>
           <br></br>
           <br></br>
-          <p>Create Digital Travel Journals.</p>
+          <h1>
+            <p>Create Digital Travel Journals.</p>
+          </h1>
+          <br></br>
           <br></br>
           <div hidden={!stupidGifToggle}>
             <ArcherGifs />
           </div>
-        </h1>
+        </div>
       ) : (
-        <Carousel/>
+        <Carousel />
       )}
       <button
         className={`btn ${!toggled ? "btn-info" : "btn-danger"}`}
