@@ -117,14 +117,15 @@ const FriendList = ({ friends, sendInvite }) => {
                 <br></br>
                 <br></br>
                 <div
-                  className="position-relative top-0 start-50 translate-middle text-center mt-5 text-dark"
+                  className="alert alert-info text-center opacity-75 mt-3 text-dark rounded-pill text-wrap"
+                  style={{ width: "15rem" , marginLeft: "auto", marginRight: "auto"}}
                   id={friend.id}
                   onClick={(e) => {
                     nav(`journals/${e.target.id}`);
                     window.scrollTo(0, 0);
                   }}
                 >
-                  Journals {" "}
+                  Journals{' '}
                   <MDBBadge
                     className="badge rounded-pill bg-info p-2 px-4 text-light"
                     notification
