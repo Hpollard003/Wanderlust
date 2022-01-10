@@ -7,6 +7,7 @@ import {
   MDBCarouselCaption,
   MDBCarouselElement,
 } from "mdb-react-ui-kit";
+import Footer from "../components/Footer";
 
 export const Home = ({ currentUser }) => {
   const [toggled, setToggled] = useState(false);
@@ -36,7 +37,7 @@ export const Home = ({ currentUser }) => {
           className="m-4"
           fade
           interval={9000}
-          style={{ maxHeight: "50rem" , maxWidth: "100rem" }}
+          style={{ maxHeight: "50rem", maxWidth: "100rem" }}
         >
           <MDBCarouselInner>
             <MDBCarouselItem className="active">
@@ -118,6 +119,7 @@ export const Home = ({ currentUser }) => {
           </>
         )}
       </button>
+      <Footer />
     </div>
   );
 };

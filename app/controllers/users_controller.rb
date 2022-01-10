@@ -21,12 +21,6 @@ class UsersController < ApplicationController
       end
     end
 
-    def upload
-        user = find_user
-        user.update(user_params)
-        render json: user, status: :ok
-    end
-
     # Show finds a journal by their id 
     def show 
       user = find_user

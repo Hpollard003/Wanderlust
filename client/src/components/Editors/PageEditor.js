@@ -6,16 +6,16 @@ export const PageEditor = () => {
   const [body, setBody] = useState("");
   const { id, pageId } = useParams();
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     fetch(`/journals/${id}/pages/${pageId}`)
-    .then((resp) => resp.json())
-    .then((data) => {
-      setTitle(data.title);
-      setBody(data.body);
-    });
-  }, [id , pageId]);
-  
+      .then((resp) => resp.json())
+      .then((data) => {
+        setTitle(data.title);
+        setBody(data.body);
+      });
+  }, [id, pageId]);
+
   const editPageHandler = (page) => {
     fetch(`/journals/${id}/pages/${pageId}`, {
       method: "PATCH",
@@ -39,17 +39,20 @@ export const PageEditor = () => {
 
   return (
     <div className="card position-absolute top-50 start-50 translate-middle bg-transparent border-0">
-      <button onClick={() => navigate(-1)} className="btn text-dark">Go Back</button>
+      <button onClick={() => navigate(-1)} className="btn text-dark">
+        Go Back
+      </button>
       <h2 className="text-center text-gradient">Edit "{title}" Page</h2>
       <form onSubmit={editBtn} className="list-group list-group-flush">
         <input
-        required
+          required
           type="text"
           className="form-control"
           name="title"
           id="title"
           placeholder="Title"
           value={title}
+          maxLength="20"
           onChange={(e) => {
             setTitle(e.target.value);
           }}

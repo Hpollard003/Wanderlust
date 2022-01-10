@@ -1,25 +1,25 @@
 import React, { useState } from "react";
 
-const NewJournalForm = ({addJournalHandler , toggler}) => {
+const NewJournalForm = ({ addJournalHandler, toggler }) => {
   const [title, setTitle] = useState("");
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addJournalHandler({
-      title
+      title,
     });
-    toggler()
-    setTitle('')
+    toggler();
+    setTitle("");
   };
 
-
   return (
-      <div>
-    <form onSubmit={handleSubmit} className="list-group list-group-flush w-25 "> 
- 
+    <div>
+      <form
+        onSubmit={handleSubmit}
+        className="list-group list-group-flush w-25 "
+      >
         <input
-        required
+          required
           type="text"
           className="list-group-item"
           name="title"
@@ -34,7 +34,7 @@ const NewJournalForm = ({addJournalHandler , toggler}) => {
         <button className="btn btn-green" type="submit">
           Submit
         </button>
-    </form>
+      </form>
     </div>
   );
 };

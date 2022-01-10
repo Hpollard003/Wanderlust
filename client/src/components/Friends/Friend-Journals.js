@@ -11,9 +11,9 @@ import {
 
 const FRIEND_JOURNALS = () => {
   const [journals, setJournals] = useState([]);
-  const [name , setName] = useState("")
+  const [name, setName] = useState("");
   const nav = useNavigate();
-  const { friend_id, username, id , numOfFriends } = useParams();
+  const { friend_id, username, id, numOfFriends } = useParams();
 
   useEffect(() => {
     fetch(`/users/${friend_id}`)
@@ -28,12 +28,18 @@ const FRIEND_JOURNALS = () => {
     <>
       <Outlet />
       <h1 className="text-center text-gradient">Journals </h1>
-      <button onClick={() => nav(`/${username}/${id}/friends/${numOfFriends}`)} 
-        className='btn btn-danger position-absolute end-0 mx-3'>Close {name}'s Journals</button>
+      <button
+        onClick={() => nav(`/${username}/${id}/friends/${numOfFriends}`)}
+        className="btn btn-danger position-absolute end-0 mx-3"
+      >
+        Close {name}'s Journals
+      </button>
       <div className="page-list">
-      {journals.length === 0 ? (
+        {journals.length === 0 ? (
           <>
-          <h1 className="text-center p-3 border border-5 rounded-pill bg-green">Nothing To See Here</h1> 
+            <h1 className="text-center p-3 border border-5 rounded-pill bg-green">
+              Nothing To See Here
+            </h1>
           </>
         ) : null}
         {journals.map((journal, ind) => (
@@ -46,10 +52,18 @@ const FRIEND_JOURNALS = () => {
                 window.scrollTo(0, 0);
               }}
             >
-              <MDBCardImage overlay className="rounded-3 journal-image" src={Jgif} alt="..." id={journal.id} />
+              <MDBCardImage
+                overlay
+                className="rounded-3 journal-image"
+                src={Jgif}
+                alt="..."
+                id={journal.id}
+              />
               <MDBCardOverlay id={journal.id}>
                 <MDBCardTitle id={journal.id} className="journal-text-gradient">
-                  <header id={journal.id} className="m-4 fs-2">{journal.title}</header>
+                  <header id={journal.id} className="m-4 fs-2">
+                    {journal.title}
+                  </header>
                 </MDBCardTitle>
               </MDBCardOverlay>
               <MDBCardFooter className="text-light footer-bg-gradient"></MDBCardFooter>

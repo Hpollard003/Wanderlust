@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Search = ({ friends, sendInvite, followUser , currentUser }) => {
+const Search = ({ friends, sendInvite, followUser, currentUser }) => {
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
@@ -18,7 +18,6 @@ const Search = ({ friends, sendInvite, followUser , currentUser }) => {
     }
   };
 
-
   return (
     <div className="position-relative me-3 end-0 w-50">
       <div className="search-wrapper">
@@ -32,14 +31,18 @@ const Search = ({ friends, sendInvite, followUser , currentUser }) => {
         </label>
       </div>
       <ul className="card-grid position-sticky">
-        {filteredUsers.length != 0 && (
+        {filteredUsers.length !== 0 && (
           <div className="dataResult">
             {filteredUsers.slice(0, 15).map((friend, ind) => {
               return (
                 <article className="m-2 text-light" key={ind}>
                   <div className="card-image d-inline-flex">
                     <img
-                      src={friend.image}
+                      src={
+                        friend.image
+                          ? friend.image
+                          : "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F-MPQv3-0XWfk%2FVSk4Gb4MgSI%2FAAAAAAAAAWI%2FJhy6FdCIPKM%2Fs1600%2FSileut%252BLuffy.jpg&f=1&nofb=1"
+                      }
                       width={50}
                       height={50}
                       className="img-responsive border rounded-circle"

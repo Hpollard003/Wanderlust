@@ -34,7 +34,10 @@ const EditProfile = () => {
   const errorRender = () => {
     return errors.map((err) => {
       return (
-        <div className="bg-danger rounded p-1 mx-2 my-1 opacity-75" role="alert">
+        <div
+          className="bg-danger rounded p-1 mx-2 my-1 opacity-75"
+          role="alert"
+        >
           {err}
         </div>
       );
@@ -47,7 +50,9 @@ const EditProfile = () => {
 
   return (
     <div className="card position-absolute top-50 start-50 translate-middle bg-transparent border-0">
-      <button onClick={() => navigate(-1)} className="btn text-dark">Go Back</button>
+      <button onClick={() => navigate(-1)} className="btn text-dark">
+        Go Back
+      </button>
       <h1 className="card-header fs-3 text-center bg-green fs-5">
         Edit Profile
       </h1>
@@ -89,14 +94,19 @@ const EditProfile = () => {
         {errors ? errorRender() : null}
       </form>
       <div className="my-3 text-center">
-      <button onClick={toggler} className={`btn ${!toggled ? "btn-info" : "btn-danger w-25"} btn-sm`}>{!toggled ? "Edit Pfp" : "Close"}</button>
-      <div hidden={!toggled}>
-      <UploadImage
-        user_id={user_id}
-        password={password}
-        passwordConfirmation={passwordConfirmation}
-      />
-      </div>
+        <button
+          onClick={toggler}
+          className={`btn ${!toggled ? "btn-info" : "btn-danger w-25"} btn-sm`}
+        >
+          {!toggled ? "Edit Pfp" : "Close"}
+        </button>
+        <div hidden={!toggled}>
+          <UploadImage
+            user_id={user_id}
+            password={password}
+            passwordConfirmation={passwordConfirmation}
+          />
+        </div>
       </div>
     </div>
   );

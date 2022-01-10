@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-// import Uploader from "./FilePond";
 
 const NewPage = (props) => {
   const [title, setTitle] = useState("");
@@ -15,7 +14,7 @@ const NewPage = (props) => {
 
       journal_id: id,
     });
-    props.toggler()
+    props.toggler();
     setTitle("");
     setBody("");
   };
@@ -32,13 +31,13 @@ const NewPage = (props) => {
             id="title"
             placeholder="title"
             value={title}
-            maxLength="50"
+            maxLength="20"
             onChange={(e) => {
               setTitle(e.target.value);
             }}
           />
           <textarea
-          required
+            required
             className="form-control"
             style={{ height: "100px" }}
             name="body"

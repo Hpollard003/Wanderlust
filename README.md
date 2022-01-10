@@ -2,7 +2,7 @@
 
 ## Description
 
-Create Digital Travel Journals to keep track of your adventure and share them with friends.
+Create Digital Travel Journals to keep track of your adventures and share them with friends.
 
 ## Requirements
 

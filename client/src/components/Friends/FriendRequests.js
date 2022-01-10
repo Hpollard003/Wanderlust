@@ -26,7 +26,6 @@ const FriendRequests = ({
     setMyFriendRequests(newFriends);
   };
 
-
   const toggler = () => {
     toggled ? setToggled(false) : setToggled(true);
   };
@@ -35,7 +34,9 @@ const FriendRequests = ({
     <div>
       <button type="button" className="btn position-relative" onClick={toggler}>
         {" "}
-        <h2 className="fs-1 fas fa-envelope text-light" title="Invites"> </h2>
+        <h2 className="fs-1 fas fa-envelope text-light" title="Invites">
+          {" "}
+        </h2>
         <MDBBadge
           className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
           notification

@@ -1,16 +1,16 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Journal from '../components/Journal/Journal'
-
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Footer from "../components/Footer";
+import Journal from "../components/Journal/Journal";
 
 export const Journals = () => {
-    return(
-        <div>
-            <Outlet/>
-            <Journal/>
+  return (
+    <div>
+      <Outlet />
+      <Journal />
+      <Footer />
+    </div>
+  );
+};
 
-        </div>
-    )
-}
-
-export default Journals
+export default Journals;

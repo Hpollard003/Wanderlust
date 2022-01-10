@@ -26,7 +26,7 @@ export const Navbar = ({ setCurrentUser, currentUser }) => {
           <MDBContainer fluid>
             <MDBNavbarBrand
               className="text-gradient"
-              onClick={() => nav("/home")}
+              onClick={() => nav("/")}
             >
               {" "}
               <img
@@ -95,7 +95,10 @@ export const Navbar = ({ setCurrentUser, currentUser }) => {
               </MDBNavbarNav>
               {currentUser ? (
                 <div className="nav-link ">
-                  <Logout setCurrentUser={setCurrentUser} currentUser={currentUser}/>
+                  <Logout
+                    setCurrentUser={setCurrentUser}
+                    currentUser={currentUser}
+                  />
                 </div>
               ) : (
                 <div className="row m-3">

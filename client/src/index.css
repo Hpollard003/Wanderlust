@@ -52,16 +52,16 @@ body::-webkit-scrollbar-track-piece {
 }
 
 .footer {
-  position:fixed;
+  position: fixed;
   margin-bottom: auto;
-  left:0;
-  width:100%;
+  left: 0;
+  width: 100%;
   height: 90px;
-  background-color: #D0DAEE;
+  background-color: #d0daee;
 }
 
 .container {
-    max-width: 1500px;
+  max-width: 1500px;
 }
 
 a {
@@ -90,8 +90,8 @@ a {
 }
 
 .page {
-  height: 350px;
-  width: 400px;
+  height: 400px;
+  width: 350px;
   max-height: 400;
   min-width: 250px;
   padding: 1.5rem;
@@ -105,6 +105,7 @@ a {
   scroll-snap-align: start;
   clear: both;
   position: relative;
+  word-wrap: break-word;
 }
 
 .journal {
@@ -122,7 +123,6 @@ a {
 
 .journal-image {
   height: 250px;
-
 }
 .journal:focus-within ~ .journal,
 .journal:hover ~ .journal {

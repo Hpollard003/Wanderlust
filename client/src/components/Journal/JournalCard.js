@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Jgif from "../../assets/journal.gif";
 import {
   MDBCard,
@@ -11,13 +11,16 @@ import {
 
 export const JournalCard = ({ journals, toggleOpt, removeItem }) => {
   const nav = useNavigate();
+  const { username } = useParams();
 
   const renderjournalList = () => {
     return (
       <div className="row">
         {journals.length === 0 ? (
           <>
-          <h1 className="text-center my-5 border border-5 rounded-pill bg-green">Click New Journal To Get Started</h1> 
+            <h1 className="text-center my-5 border border-5 rounded-pill bg-green">
+              Click New Journal To Get Started
+            </h1>
           </>
         ) : null}
         {journals.map((journal, ind) => (
@@ -27,7 +30,7 @@ export const JournalCard = ({ journals, toggleOpt, removeItem }) => {
               className="text-light bg-transparent"
               id={journal.id}
               onClick={(e) => {
-                nav(`${e.target.id}`);
+                nav(`/journals/${username}/${e.target.id}`);
                 window.scrollTo(0, 0);
               }}
             >

@@ -2,7 +2,7 @@ class UserSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
   include ImageConcern
 
-  attributes :id, :username, :friends, :pending_friends, :journals, :image, :invitations
+  attributes :id, :username, :image, :friends, :pending_friends, :journals, :invitations
 
   def image
     rails_blob_url(object.image, only_path: true) if object.image.attached?
@@ -18,8 +18,7 @@ class UserSerializer < ActiveModel::Serializer
   def pending_friends
     object.invitations.where(confirmed: false).map do |invite|
     invite.friend.invite_id = invite.id
-    @friend = ::FriendSerializer.new(invite.friend)
-
+    ::FriendSerializer.new(invite.friend)
     end
   end 
 

@@ -1,13 +1,11 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 
-const Footer = ({ currentUser }) => {
+const Footer = () => {
   return (
-    <footer className=" text-light text-center ">
+    <footer className=" text-light text-center">
       <MDBContainer className="py-5 my-5">
         <MDBRow className="my-5 mb-0 pt-5">
-
-
           <MDBCol lg="7" md="6" className="">
             <h5 className="text-uppercase">Contact</h5>
             <p>

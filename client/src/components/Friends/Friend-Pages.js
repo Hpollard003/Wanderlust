@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 const FRIEND_PAGES = () => {
   const [pages, setPages] = useState([]);
   const nav = useNavigate();
-  const { journal_id , friend_id, id, username ,numOfFriends } = useParams();
+  const { journal_id, friend_id, id, username, numOfFriends } = useParams();
 
   useEffect(() => {
     fetch(`/journals/${journal_id}`)
@@ -17,12 +17,22 @@ const FRIEND_PAGES = () => {
   return (
     <div>
       <h1 className="text-center text-gradient">Pages </h1>
-      <button onClick={() => nav(`/${username}/${id}/friends/${numOfFriends}/journals/${friend_id}`)} 
-        className='btn btn-danger position-absolute end-0 mx-3'>Close Journal</button>
+      <button
+        onClick={() =>
+          nav(
+            `/${username}/${id}/friends/${numOfFriends}/journals/${friend_id}`
+          )
+        }
+        className="btn btn-danger position-absolute end-0 mx-3"
+      >
+        Close Journal
+      </button>
       <div className="page-list">
-      {pages.length === 0 ? (
+        {pages.length === 0 ? (
           <>
-          <h3 className="text-light mx-5 border border-5 rounded-pill bg-green px-3 py-2">Nope no pages here.</h3> 
+            <h3 className="text-light mx-5 border border-5 rounded-pill bg-green px-3 py-2">
+              Nope no pages here.
+            </h3>
           </>
         ) : null}
         {pages.map((page, ind) => (

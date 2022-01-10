@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import FriendRequests from "./FriendRequests";
+import defaultPfp from "../../assets/earthy.gif"
 import {
   MDBCard,
   MDBBadge,
@@ -23,7 +24,7 @@ const FriendList = ({ friends, sendInvite }) => {
 
         console.log(myFriendRequests);
       });
-  }, [numOfFriends , friends]);
+  }, [numOfFriends, friends]);
 
   const addFriendsHandler = (event) => {
     fetch(`/users/${id}/invitations/${event.target.id}`, {
@@ -65,13 +66,16 @@ const FriendList = ({ friends, sendInvite }) => {
         />
       </div>
       {myFriends.length === 0 ? (
-          <>
-          <h3 className="text-center mx-5 border border-5 rounded-pill bg-green px-3 py-2 my-4">Oh Dang Looks Like You Have No Friends</h3> 
-          <p className="text-center mx-5 border border-5 rounded-pill bg-green px-3 py-2">Click the Search Icon and try to find some.</p>
-          </>
-        ) : null}
+        <>
+          <h3 className="text-center mx-5 border border-5 rounded-pill bg-green px-3 py-2 my-4">
+            Oh Dang Looks Like You Have No Friends
+          </h3>
+          <p className="text-center mx-5 border border-5 rounded-pill bg-green px-3 py-2">
+            Click the Search Icon and try to find some.
+          </p>
+        </>
+      ) : null}
       <div className="row">
-
         {myFriends.map((friend, ind) => (
           <div
             className="col-4 px-4 position-relative py-5"
@@ -81,13 +85,16 @@ const FriendList = ({ friends, sendInvite }) => {
             <MDBCard
               className="text-light bg-transparent p-1 rounded-circle border-0"
               id={friend.id}
-     
             >
               <MDBCardImage
                 overlay
                 height="300"
                 width={300}
-                src={friend.image}
+                src={
+                  friend.image
+                    ? friend.image
+                    : defaultPfp
+                }
                 alt="..."
                 id={friend.id}
                 title={`${friend.username}`}
@@ -127,17 +134,17 @@ const FriendList = ({ friends, sendInvite }) => {
                 </div>
               </MDBCardOverlay>
             </MDBCard>
-                <button
-                  id={friend.invite_id}
-                  className="btn btn-danger btn-sm p-2 rounded-circle"
-                  onClick={unfriend}
-                  title="Unfriend"
-                >
-                  <p
-                    id={friend.invite_id}
-                    className="fas fa-user-times px-1 my-1"
-                  ></p>
-                </button>
+            <button
+              id={friend.invite_id}
+              className="btn btn-danger btn-sm p-2 rounded-circle"
+              onClick={unfriend}
+              title="Unfriend"
+            >
+              <p
+                id={friend.invite_id}
+                className="fas fa-user-times px-1 my-1"
+              ></p>
+            </button>
           </div>
         ))}
       </div>
