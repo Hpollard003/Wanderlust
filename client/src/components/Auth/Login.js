@@ -19,7 +19,7 @@ function Login({ setCurrentUser }) {
       if (r.ok) {
         r.json().then((user) => {
           setCurrentUser(user);
-          navigate("/home");
+          navigate("/");
         });
       } else {
         r.json().then((err) => setError(err.errors));

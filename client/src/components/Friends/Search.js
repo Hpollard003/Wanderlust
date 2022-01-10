@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import userBg from "../../assets/Default.jpg"
 
 const Search = ({ friends, sendInvite, followUser, currentUser }) => {
   const [filteredUsers, setFilteredUsers] = useState([]);
@@ -41,7 +42,7 @@ const Search = ({ friends, sendInvite, followUser, currentUser }) => {
                       src={
                         friend.image
                           ? friend.image
-                          : "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F-MPQv3-0XWfk%2FVSk4Gb4MgSI%2FAAAAAAAAAWI%2FJhy6FdCIPKM%2Fs1600%2FSileut%252BLuffy.jpg&f=1&nofb=1"
+                          : userBg
                       }
                       width={50}
                       height={50}

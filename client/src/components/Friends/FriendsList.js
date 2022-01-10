@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import FriendRequests from "./FriendRequests";
-import defaultPfp from "../../assets/earthy.gif"
+import defaultPfp from "../../assets/Default.jpg"
 import {
   MDBCard,
   MDBBadge,
@@ -98,7 +98,7 @@ const FriendList = ({ friends, sendInvite }) => {
                 alt="..."
                 id={friend.id}
                 title={`${friend.username}`}
-                className="rounded-circle border border-5 border-top-0 border-end-0 shadow-lg bg-dark"
+                className="rounded-circle border border-5 border-top-0 border-end-0 shadow-lg"
               />
               <MDBCardOverlay
                 id={friend.id}
@@ -109,22 +109,22 @@ const FriendList = ({ friends, sendInvite }) => {
                   window.scrollTo(0, 0);
                 }}
               >
-                <h3 id={friend.id} className="friend-text-gradient mb-5 py-4">
+                <h3 id={friend.id} className="text-gradient mb-5 py-4">
                   {friend.username}
                 </h3>
                 <br></br>
                 <br></br>
                 <div
-                  className="position-relative top-0 start-50 translate-middle text-center mt-5"
+                  className="position-relative top-0 start-50 translate-middle text-center mt-5 text-dark"
                   id={friend.id}
                   onClick={(e) => {
                     nav(`journals/${e.target.id}`);
                     window.scrollTo(0, 0);
                   }}
                 >
-                  Journals
+                  Journals {" "}
                   <MDBBadge
-                    className="badge rounded-pill bg-info p-2 px-4"
+                    className="badge rounded-pill bg-info p-2 px-4 text-light"
                     notification
                     id={friend.id}
                     title={`${friend.username}'s Journals`}

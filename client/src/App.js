@@ -14,8 +14,8 @@ function App() {
     }).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
-          setAuthChecked(!authChecked);
           setCurrentUser(data);
+          setAuthChecked(!authChecked);
         });
       } else {
         setAuthChecked(!authChecked);

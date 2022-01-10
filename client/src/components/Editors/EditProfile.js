@@ -98,11 +98,12 @@ const EditProfile = () => {
           onClick={toggler}
           className={`btn ${!toggled ? "btn-info" : "btn-danger w-25"} btn-sm`}
         >
-          {!toggled ? "Edit Pfp" : "Close"}
+          {!toggled ? "Edit Pic" : "Close"}
         </button>
         <div hidden={!toggled}>
           <UploadImage
             user_id={user_id}
+            username={username}
             password={password}
             passwordConfirmation={passwordConfirmation}
           />

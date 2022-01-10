@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Journal from "../components/Journal/Journal";
+import userBg from "../assets/Default.jpg"
 
 export const Profile = (props) => {
   const [user, setUser] = useState([]);
@@ -29,7 +30,7 @@ export const Profile = (props) => {
           src={
             user.image
               ? user.image
-              : "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F-MPQv3-0XWfk%2FVSk4Gb4MgSI%2FAAAAAAAAAWI%2FJhy6FdCIPKM%2Fs1600%2FSileut%252BLuffy.jpg&f=1&nofb=1"
+              : userBg
           }
           className="rounded rounded-circle border border-info border-5 my-3"
           style={{ height: "200px", width: "200px" }}
