@@ -4,8 +4,10 @@ import Footer from "../components/Footer";
 
 const AboutPage = () => (
   <div className="text-light text-center">
-    <h2 className="text-gradient">About</h2>
-    <article className="card navbar-bg-gradient p-3 text-center m-5">
+    <h1 className="text-gradient">About</h1>
+    <br></br>
+    <article className="card navbar-bg-gradient p-3 text-center rounded-3 shadow-lg"
+    style={{ width: "50rem" , marginLeft: "auto", marginRight: "auto"}}>
       <h1>Wanderlust</h1>
       <p>
         A very strong or irresistible impulse to travel.
@@ -22,10 +24,12 @@ const AboutPage = () => (
         <br></br> you think you're missing out on.
       </p>
     </article>
+    <br></br>
+
     <img
       src={Earfy}
       height="300"
-      alt=""
+      alt="Earfy"
       className="rounded rounded-circle "
       loading="lazy"
     />

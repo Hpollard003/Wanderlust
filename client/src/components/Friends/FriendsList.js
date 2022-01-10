@@ -67,10 +67,12 @@ const FriendList = ({ friends, sendInvite }) => {
       </div>
       {myFriends.length === 0 ? (
         <>
-          <h3 className="text-center mx-5 border border-5 rounded-pill bg-green px-3 py-2 my-4">
+          <h3 className="text-center border border-5 rounded-pill bg-green px-3 py-2 my-4"
+          style={{ width: "50rem" , marginLeft: "auto", marginRight: "auto"}}>
             Oh Dang Looks Like You Have No Friends
           </h3>
-          <p className="text-center mx-5 border border-5 rounded-pill bg-green px-3 py-2">
+          <p className="text-center border border-5 rounded-pill bg-green px-3 py-2"
+          style={{ width: "30rem" , marginLeft: "auto", marginRight: "auto"}}>
             Click the Search Icon and try to find some.
           </p>
         </>

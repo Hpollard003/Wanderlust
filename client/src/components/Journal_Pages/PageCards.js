@@ -5,7 +5,8 @@ const PageCards = ({ pages, toggleOpt, removeItem }) => {
     <div className="page-list">
       {pages.length === 0 ? (
         <>
-          <h3 className="text-light mx-5 border border-5 rounded-pill bg-green px-3 py-2">
+          <h3 className="text-light border border-5 rounded-pill bg-green px-3 py-2 text-center"
+          style={{ width: "50rem" , marginLeft: "auto", marginRight: "auto"}}>
             Click New Page To Get Started
           </h3>
         </>

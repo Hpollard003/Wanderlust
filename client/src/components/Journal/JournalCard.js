@@ -18,9 +18,10 @@ export const JournalCard = ({ journals, toggleOpt, removeItem }) => {
       <div className="row">
         {journals.length === 0 ? (
           <>
-            <h1 className="text-center my-5 border border-5 rounded-pill bg-green">
+            <h3 className="text-light border border-5 rounded-pill bg-green px-3 py-2 text-center"
+            style={{ width: "50rem" , marginLeft: "auto", marginRight: "auto"}}>
               Click New Journal To Get Started
-            </h1>
+            </h3>
           </>
         ) : null}
         {journals.map((journal, ind) => (

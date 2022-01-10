@@ -37,9 +37,10 @@ const FRIEND_JOURNALS = () => {
       <div className="page-list">
         {journals.length === 0 ? (
           <>
-            <h1 className="text-center p-3 border border-5 rounded-pill bg-green">
-              Nothing To See Here
-            </h1>
+            <h3 className="text-center p-3 border border-5 rounded-pill bg-green text-light px-3 py-2"
+            style={{ width: "50rem" , marginLeft: "auto", marginRight: "auto"}}>
+              Nothing To See Here.
+            </h3>
           </>
         ) : null}
         {journals.map((journal, ind) => (

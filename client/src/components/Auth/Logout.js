@@ -12,7 +12,7 @@ const Logout = ({setCurrentUser , currentUser}) => {
 
   return (
     <div className="d-inline-flex">
-        <p className="my-2 p-1 text-light">{currentUser.username}</p>  
+        <a className="my-2 p-1 text-light" href={`/profile/${currentUser.username}`}>{currentUser.username}</a>  
       <Link to="/" className="nav-link text-danger" onClick={handleLogout}>
         
       <h3><i className="fas fa-power-off"></i></h3>
