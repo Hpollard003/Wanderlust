@@ -1,5 +1,5 @@
 # WanderLust
-
+![617otx](https://user-images.githubusercontent.com/78292768/149453757-5c9aa09a-ac9d-4487-8567-16f6be7f9ded.gif)
 ## Description
 
 Create Digital Travel Journals to keep track of your adventures and share them with friends.
@@ -24,7 +24,8 @@ npm start --prefix client
 
 ## Setup
 
-```sh
+```sh![149453757-5c9aa09a-ac9d-4487-8567-16f6be7f9ded](https://user-images.githubusercontent.com/78292768/149453800-fe94821b-3b95-4106-ab9b-da929e074b62.gif)
+
 bundle install
 rails db:create
 npm install --prefix client
