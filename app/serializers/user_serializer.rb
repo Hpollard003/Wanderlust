@@ -1,6 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
-  # include ImageConcern
+  include ImageConcern
 
   attributes :id, :username, :image, :friends, :pending_friends, :journals, :invitations
 
