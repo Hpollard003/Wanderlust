@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "PORT=4000 react-scripts start",
-    "build": "craco build",
+    "build": "react-scripts build",
     "test": "craco test",
     "eject": "react-scripts eject"
   },

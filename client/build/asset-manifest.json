@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d7eb247e.css",
+    "main.js": "/static/js/main.1038b76c.js",
+    "static/media/wanderlust.gif": "/static/media/wanderlust.4896dcd739e4bd7b1fab.gif",
+    "static/media/archer.gif": "/static/media/archer.77ccd3e7f21beab22705.gif",
+    "static/media/earthy.gif": "/static/media/earthy.50996e0014a828b2b7e6.gif",
+    "static/media/journal.gif": "/static/media/journal.1da2fe5a4facd0f3e0a3.gif",
+    "static/media/dumb.gif": "/static/media/dumb.d919d0910bb651d11454.gif",
+    "static/media/stupid.gif": "/static/media/stupid.a0c74c92240d733b1bbe.gif",
+    "static/media/paper.png": "/static/media/paper.56ee85ed19b8f156f0d6.png",
+    "static/media/404.gif": "/static/media/404.47f49260dea76510ae54.gif",
+    "static/media/loadingDOTS.gif": "/static/media/loadingDOTS.9a1216e5bf4a72d3fac0.gif",
+    "static/media/err.gif": "/static/media/err.04fd3d1b14e8a82b8030.gif",
+    "static/media/Default.jpg": "/static/media/Default.701be91a057326bac939.jpg",
+    "index.html": "/index.html",
+    "main.d7eb247e.css.map": "/static/css/main.d7eb247e.css.map",
+    "main.1038b76c.js.map": "/static/js/main.1038b76c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d7eb247e.css",
+    "static/js/main.1038b76c.js"
+  ]
+}
