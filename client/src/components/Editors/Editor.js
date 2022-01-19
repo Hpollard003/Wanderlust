@@ -12,7 +12,6 @@ export const Editor = () => {
       .then((resp) => resp.json())
       .then((data) => {
         setJournals(data);
-        console.log(journals);
       });
   }, []);
 

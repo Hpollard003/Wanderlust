@@ -28,7 +28,6 @@ const Pages = () => {
       .then((response) => response.json())
       .then((data) => {
         setPages((prevjournals) => [...prevjournals, { id: data.id, ...page }]);
-        console.log(page);
       });
   };
 

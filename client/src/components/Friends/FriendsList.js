@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import FriendRequests from "./FriendRequests";
-import defaultPfp from "../../assets/Default.jpg"
+import defaultPfp from "../../assets/Default.jpg";
 import {
   MDBCard,
   MDBBadge,
@@ -21,10 +21,8 @@ const FriendList = ({ friends, sendInvite }) => {
       .then((data) => {
         setMyFriends(data.friends);
         setMyFriendRequests(data.pending_friends);
-
-        console.log(myFriendRequests);
       });
-  }, [numOfFriends, friends]);
+  }, [numOfFriends, friends, id]);
 
   const addFriendsHandler = (event) => {
     fetch(`/users/${id}/invitations/${event.target.id}`, {
@@ -67,12 +65,16 @@ const FriendList = ({ friends, sendInvite }) => {
       </div>
       {myFriends.length === 0 ? (
         <>
-          <h3 className="text-center border border-5 rounded-pill bg-green px-3 py-2 my-4"
-          style={{ width: "50rem" , marginLeft: "auto", marginRight: "auto"}}>
+          <h3
+            className="text-center border border-5 rounded-pill bg-green px-3 py-2 my-4"
+            style={{ width: "50rem", marginLeft: "auto", marginRight: "auto" }}
+          >
             Oh Dang Looks Like You Have No Friends
           </h3>
-          <p className="text-center border border-5 rounded-pill bg-green px-3 py-2"
-          style={{ width: "30rem" , marginLeft: "auto", marginRight: "auto"}}>
+          <p
+            className="text-center border border-5 rounded-pill bg-green px-3 py-2"
+            style={{ width: "30rem", marginLeft: "auto", marginRight: "auto" }}
+          >
             Click the Search Icon and try to find some.
           </p>
         </>
@@ -92,11 +94,7 @@ const FriendList = ({ friends, sendInvite }) => {
                 overlay
                 height="300"
                 width={300}
-                src={
-                  friend.image
-                    ? friend.image
-                    : defaultPfp
-                }
+                src={friend.image ? friend.image : defaultPfp}
                 alt="..."
                 id={friend.id}
                 title={`${friend.username}`}
@@ -118,14 +116,18 @@ const FriendList = ({ friends, sendInvite }) => {
                 <br></br>
                 <div
                   className="alert alert-info text-center opacity-75 mt-3 text-dark rounded-pill text-wrap"
-                  style={{ width: "15rem" , marginLeft: "auto", marginRight: "auto"}}
+                  style={{
+                    width: "15rem",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                  }}
                   id={friend.id}
                   onClick={(e) => {
                     nav(`journals/${e.target.id}`);
                     window.scrollTo(0, 0);
                   }}
                 >
-                  Journals{' '}
+                  Journals{" "}
                   <MDBBadge
                     className="badge rounded-pill bg-info p-2 px-4 text-light"
                     notification

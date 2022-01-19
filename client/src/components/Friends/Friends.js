@@ -15,7 +15,7 @@ export const Friends = ({ currentUser }) => {
       .then((data) =>
         setFriends(data.filter((friend) => friend.id !== currentUser.id))
       );
-  }, []);
+  }, [currentUser.id]);
 
   const sendInvite = (e) => {
     fetch(`/users/${currentUser.id}/invitations`, {
@@ -44,7 +44,7 @@ export const Friends = ({ currentUser }) => {
       .then(() => {
         nav(`/${username}/${id}/friends/${parseInt(numOfFriends) + 1}`);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   };
 
   const optionsToggler = () => {

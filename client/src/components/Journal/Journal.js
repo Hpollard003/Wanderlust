@@ -12,7 +12,6 @@ export const Journal = () => {
       .then((resp) => resp.json())
       .then((data) => {
         setJournals(data);
-        console.log(journals);
       });
   }, []);
 
@@ -38,7 +37,6 @@ export const Journal = () => {
           ...prevjournals,
           { id: data.id, ...journal },
         ]);
-        console.log(journal);
       });
   };
 
