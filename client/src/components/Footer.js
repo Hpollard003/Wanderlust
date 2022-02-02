@@ -10,7 +10,7 @@ const Footer = () => {
             <h5 className="text-uppercase">Contact</h5>
             <p>
               <i className="fas fa-envelope me-3"></i>
-              hpollard1222@gmail.com
+              hpollard003@gmail.com
             </p>
           </MDBCol>
 
